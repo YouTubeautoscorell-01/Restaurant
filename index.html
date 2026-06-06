@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Royal Navsari Dining</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+<div class="logo">
+ROYAL NAVSARI DINING
+</div>
+
+<div class="menu-btn" id="menuBtn">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+</header>
+
+<nav class="mobile-menu" id="mobileMenu">
+
+<a href="#home">Home</a>
+
+<a href="#story">Our Story</a>
+
+<a href="#food">Food Order</a>
+
+<a href="#location">Location</a>
+
+<a href="#booking">Table Booking</a>
+
+<a href="#contact">Contact</a>
+
+</nav>
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-overlay"></div>
+
+<div class="hero-content">
+
+<h1>ROYAL NAVSARI DINING</h1>
+
+<div class="divider"></div>
+
+<p>
+Authentic Indian Flavours,
+Timeless Hospitality
+</p>
+
+<a href="#food" class="gold-btn">
+Explore Menu
+</a>
+
+</div>
+
+</section>
+
+<!-- ================= STORY SECTION ================= -->
+
+<section class="story-section" id="story">
+
+<h2>OUR STORY</h2>
+
+<div class="small-divider"></div>
+
+<p>
+
+Royal Navsari Dining brings together
+traditional Indian recipes,
+premium ingredients and warm hospitality.
+
+Inspired by the royal dining culture of India,
+every dish is prepared with passion and served with elegance.
+
+</p>
+
+<button id="storyBtn" class="gold-btn">
+READ MORE
+</button>
+
+</section>
+
+<!-- STORY POPUP -->
+
+<div class="story-popup" id="storyPopup">
+
+<div class="popup-box">
+
+<span class="close-popup" id="closeStory">
+×
+</span>
+
+<h2>ABOUT OUR RESTAURANT</h2>
+
+<p>
+
+We believe food is more than a meal —
+it is an experience.
+
+From aromatic curries to handcrafted desserts,
+our chefs combine tradition and innovation
+to create extraordinary flavours.
+
+Every corner of our restaurant reflects comfort,
+luxury and Indian culture.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- ================= FOOD SECTION ================= -->
+
+<section class="food-section" id="food">
+
+<h2>FOOD ORDER</h2>
+
+<div class="small-divider"></div>
+
+<p>
+
+Explore our chef-crafted menu featuring
+authentic Indian delicacies prepared using
+premium ingredients and traditional cooking techniques.
+
+</p>
+
+<div class="food-grid">
+
+<!-- 1 -->
+<div class="food-card">
+<img src="images/paneer-tikka.jpg">
+<h3>Paneer Tikka</h3>
+<p>Smoky grilled paneer with spices.</p>
+<span>₹220</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 2 -->
+<div class="food-card">
+<img src="images/butter-paneer.jpg">
+<h3>Butter Paneer</h3>
+<p>Rich creamy tomato gravy.</p>
+<span>₹260</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 3 -->
+<div class="food-card">
+<img src="images/kadhai-paneer.jpg">
+<h3>Kadhai Paneer</h3>
+<p>Traditional spicy paneer curry.</p>
+<span>₹250</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 4 -->
+<div class="food-card">
+<img src="images/veg-biryani.jpg">
+<h3>Veg Biryani</h3>
+<p>Fragrant rice with vegetables.</p>
+<span>₹280</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 5 -->
+<div class="food-card">
+<img src="images/dal-makhani.jpg">
+<h3>Dal Makhani</h3>
+<p>Slow cooked black lentils.</p>
+<span>₹240</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 6 -->
+<div class="food-card">
+<img src="images/hakka-noodles.jpg">
+<h3>Hakka Noodles</h3>
+<p>Indo-Chinese favorite noodles.</p>
+<span>₹210</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 7 -->
+<div class="food-card">
+<img src="images/manchurian.jpg">
+<h3>Manchurian</h3>
+<p>Crispy veggie balls in sauce.</p>
+<span>₹230</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 8 -->
+<div class="food-card">
+<img src="images/pizza.jpg">
+<h3>Cheese Pizza</h3>
+<p>Loaded with mozzarella cheese.</p>
+<span>₹299</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 9 -->
+<div class="food-card">
+<img src="images/margherita.jpg">
+<h3>Margherita Pizza</h3>
+<p>Classic Italian delight.</p>
+<span>₹249</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 10 -->
+<div class="food-card">
+<img src="images/burger.jpg">
+<h3>Veg Burger</h3>
+<p>Fresh burger with crispy patty.</p>
+<span>₹149</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 11 -->
+<div class="food-card">
+<img src="images/sandwich.jpg">
+<h3>Club Sandwich</h3>
+<p>Layered sandwich perfection.</p>
+<span>₹170</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 12 -->
+<div class="food-card">
+<img src="images/dosa.jpg">
+<h3>Masala Dosa</h3>
+<p>South Indian crispy dosa.</p>
+<span>₹180</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 13 -->
+<div class="food-card">
+<img src="images/pavbhaji.jpg">
+<h3>Pav Bhaji</h3>
+<p>Mumbai street food classic.</p>
+<span>₹190</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 14 -->
+<div class="food-card">
+<img src="images/chole.jpg">
+<h3>Chole Bhature</h3>
+<p>Punjabi special combo.</p>
+<span>₹210</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 15 -->
+<div class="food-card">
+<img src="images/thali.jpg">
+<h3>Rajwadi Thali</h3>
+<p>Luxury Gujarati thali.</p>
+<span>₹450</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 16 -->
+<div class="food-card">
+<img src="images/gulabjamun.jpg">
+<h3>Gulab Jamun</h3>
+<p>Soft sweet dessert.</p>
+<span>₹120</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 17 -->
+<div class="food-card">
+<img src="images/rasmalai.jpg">
+<h3>Rasmalai</h3>
+<p>Rich Bengali sweet.</p>
+<span>₹140</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 18 -->
+<div class="food-card">
+<img src="images/brownie.jpg">
+<h3>Brownie Ice Cream</h3>
+<p>Chocolate brownie delight.</p>
+<span>₹180</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 19 -->
+<div class="food-card">
+<img src="images/coldcoffee.jpg">
+<h3>Cold Coffee</h3>
+<p>Refreshing chilled coffee.</p>
+<span>₹120</span>
+<button>Add To Cart</button>
+</div>
+
+<!-- 20 -->
+<div class="food-card">
+<img src="images/mangoshake.jpg">
+<h3>Mango Shake</h3>
+<p>Fresh mango goodness.</p>
+<span>₹130</span>
+<button>Add To Cart</button>
+</div>
+
+</div>
+
+</section>
+<!-- ================= LOCATION SECTION ================= -->
+
+<section class="location-section" id="location">
+
+<div class="location-overlay"></div>
+
+<div class="location-content">
+
+<h2>OUR LOCATION</h2>
+
+<div class="small-divider"></div>
+
+<p>
+Visit Royal Navsari Dining and experience authentic Indian flavours in a luxurious atmosphere.
+Located near Dudhiya Talav, Navsari.
+</p>
+
+<img
+class="location-image"
+src="images/navsari-restaurant.jpg"
+alt="Restaurant Location">
+
+<br><br>
+
+<button
+class="gold-btn"
+id="exploreLocation">
+
+EXPLORE LOCATION
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ================= TABLE BOOKING ================= -->
+
+<section
+class="booking-section"
+id="booking">
+
+<h2>TABLE BOOKING</h2>
+
+<div class="small-divider"></div>
+
+<p>
+Reserve your table and enjoy a premium dining experience with your family and friends.
+</p>
+
+<form
+class="booking-form"
+id="bookingForm">
+
+<input
+type="text"
+id="name"
+placeholder="Full Name"
+required>
+
+<input
+type="tel"
+id="mobile"
+placeholder="Mobile Number"
+required>
+
+<input
+type="email"
+placeholder="Email Address"
+required>
+
+<input
+type="date"
+required>
+
+<input
+type="time"
+required>
+
+<select required>
+
+<option value="">
+Select Guests
+</option>
+
+<option>
+1 Guest
+</option>
+
+<option>
+2 Guests
+</option>
+
+<option>
+4 Guests
+</option>
+
+<option>
+6 Guests
+</option>
+
+<option>
+8 Guests
+</option>
+
+<option>
+10 Guests
+</option>
+
+</select>
+
+<textarea
+rows="5"
+placeholder="Special Request">
+</textarea>
+
+<button
+type="submit"
+class="gold-btn">
+
+BOOK TABLE
+
+</button>
+
+</form>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+<h2>CONTACT US</h2>
+
+<div class="small-divider"></div>
+
+<div class="contact-grid">
+
+<div class="contact-box">
+
+<h3>Phone</h3>
+
+<p>
++91 98765 43210
+</p>
+
+</div>
+
+<div class="contact-box">
+
+<h3>Email</h3>
+
+<p>
+info@royalnavsaridining.com
+</p>
+
+</div>
+
+<div class="contact-box">
+
+<h3>Address</h3>
+
+<p>
+Near Dudhiya Talav
+Navsari
+Gujarat
+India
+</p>
+
+</div>
+
+<div class="contact-box">
+
+<h3>Opening Hours</h3>
+
+<p>
+Monday - Sunday
+<br>
+11:00 AM - 11:00 PM
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<h2>
+ROYAL NAVSARI DINING
+</h2>
+
+<div class="small-divider"></div>
+
+<p>
+Authentic Indian Flavours,
+Timeless Hospitality
+</p>
+
+<br>
+
+<p>
+© 2026 Royal Navsari Dining.
+All Rights Reserved.
+</p>
+
+</footer>
+
+<!-- ================= LOADER ================= -->
+
+<div id="loader">
+
+<div class="loader-circle"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+<!-- PART 1 END -->

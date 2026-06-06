@@ -1,0 +1,494 @@
+style.css
+/* =========================
+   RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+background-color:#16352D;
+
+background-image:
+
+linear-gradient(
+45deg,
+rgba(212,178,111,0.05) 25%,
+transparent 25%,
+transparent 75%,
+rgba(212,178,111,0.05) 75%
+),
+
+linear-gradient(
+-45deg,
+rgba(212,178,111,0.05) 25%,
+transparent 25%,
+transparent 75%,
+rgba(212,178,111,0.05) 75%
+);
+
+background-size:80px 80px;
+background-position:0 0,40px 40px;
+
+color:#F8F5ED;
+font-family:'Montserrat',sans-serif;
+overflow-x:hidden;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:25px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+background:rgba(0,0,0,.3);
+backdrop-filter:blur(10px);
+}
+
+.logo{
+font-size:34px;
+font-family:'Cormorant Garamond',serif;
+font-weight:700;
+color:#E8D7B0;
+letter-spacing:1px;
+}
+
+.menu-btn{
+width:42px;
+display:flex;
+flex-direction:column;
+gap:6px;
+cursor:pointer;
+}
+
+.menu-btn span{
+height:2px;
+background:#E8D7B0;
+border-radius:20px;
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu{
+position:fixed;
+top:0;
+right:-100%;
+width:260px;
+height:100vh;
+background:#0f241f;
+display:flex;
+flex-direction:column;
+padding:120px 30px;
+gap:25px;
+transition:.4s;
+z-index:998;
+}
+
+.mobile-menu.active{
+right:0;
+}
+
+.mobile-menu a{
+color:#E8D7B0;
+text-decoration:none;
+font-size:18px;
+letter-spacing:1px;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero{
+height:100vh;
+background:url("images/hero.jpg") center center/cover;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero-overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.55);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+padding:20px;
+}
+
+.hero h1{
+font-family:'Cormorant Garamond',serif;
+font-size:60px;
+color:#E8D7B0;
+margin-bottom:25px;
+}
+
+.hero p{
+font-size:22px;
+max-width:700px;
+line-height:1.8;
+margin:auto;
+}
+
+/* =========================
+   DIVIDERS
+========================= */
+
+.divider{
+width:120px;
+height:2px;
+background:#E8D7B0;
+margin:25px auto;
+}
+
+.small-divider{
+width:80px;
+height:2px;
+background:#E8D7B0;
+margin:25px auto;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.gold-btn{
+display:inline-block;
+padding:14px 40px;
+border:1px solid #E8D7B0;
+background:transparent;
+color:#E8D7B0;
+text-decoration:none;
+margin-top:30px;
+cursor:pointer;
+transition:.4s;
+letter-spacing:2px;
+}
+
+.gold-btn:hover{
+background:#E8D7B0;
+color:#16352D;
+}
+
+/* =========================
+   SECTION COMMON
+========================= */
+
+section{
+padding:120px 25px;
+text-align:center;
+}
+
+section h2{
+font-size:50px;
+font-family:'Cormorant Garamond',serif;
+color:#E8D7B0;
+letter-spacing:6px;
+margin-bottom:15px;
+}
+
+section p{
+max-width:900px;
+margin:auto;
+font-size:22px;
+line-height:1.8;
+}
+
+/* =========================
+   STORY POPUP
+========================= */
+
+.story-popup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.75);
+display:none;
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:2000;
+}
+
+.story-popup.active{
+display:flex;
+}
+
+.popup-box{
+background:#1e4037;
+padding:40px;
+max-width:700px;
+border:1px solid #E8D7B0;
+position:relative;
+}
+
+.popup-box h2{
+margin-bottom:20px;
+}
+
+.popup-box p{
+font-size:18px;
+line-height:1.8;
+}
+
+.close-popup{
+position:absolute;
+top:15px;
+right:20px;
+font-size:35px;
+cursor:pointer;
+color:#E8D7B0;
+}
+
+/* =========================
+   FOOD GRID
+========================= */
+
+.food-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+margin-top:60px;
+}
+
+.food-card{
+background:#1b3b33;
+
+border:1px solid #d4b26f;
+
+box-shadow:
+0 0 0 1px rgba(212,178,111,.2),
+0 15px 35px rgba(0,0,0,.35);
+
+overflow:hidden;
+transition:.4s;
+border-radius:12px;
+}
+
+.food-card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+.food-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+display:block;
+}
+
+.food-card h3{
+font-size:30px;
+font-family:'Cormorant Garamond',serif;
+color:#E8D7B0;
+padding:15px;
+}
+
+.food-card p{
+font-size:15px;
+padding:0 15px;
+margin-bottom:15px;
+}
+
+.food-card span{
+display:block;
+font-size:22px;
+font-weight:600;
+color:#E8D7B0;
+margin-bottom:15px;
+}
+
+.food-card button{
+margin-bottom:20px;
+padding:12px 25px;
+background:transparent;
+border:1px solid #E8D7B0;
+color:#E8D7B0;
+cursor:pointer;
+transition:.3s;
+}
+
+.food-card button:hover{
+background:#E8D7B0;
+color:#16352D;
+}
+
+/* =========================
+   LOCATION SECTION
+========================= */
+
+.location-section{
+position:relative;
+background:url("images/navsari-restaurant.jpg") center/cover fixed;
+}
+
+.location-overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.6);
+}
+
+.location-content{
+position:relative;
+z-index:2;
+}
+
+.location-image{
+width:100%;
+border-radius:8px;
+margin-top:40px;
+border:2px solid #E8D7B0;
+}
+
+/* =========================
+   BOOKING FORM
+========================= */
+
+.booking-form{
+max-width:700px;
+margin:50px auto;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.booking-form input,
+.booking-form textarea,
+.booking-form select{
+padding:16px;
+background:#1e4037;
+border:1px solid rgba(232,215,176,.4);
+color:white;
+outline:none;
+}
+
+.booking-form button{
+padding:16px;
+background:transparent;
+border:1px solid #E8D7B0;
+color:#E8D7B0;
+cursor:pointer;
+transition:.4s;
+}
+
+.booking-form button:hover{
+background:#E8D7B0;
+color:#16352D;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:50px;
+}
+
+.contact-box{
+background:#1e4037;
+padding:30px;
+border:1px solid rgba(232,215,176,.2);
+}
+
+.contact-box h3{
+color:#E8D7B0;
+margin-bottom:15px;
+font-family:'Cormorant Garamond',serif;
+font-size:28px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+padding:60px 20px;
+text-align:center;
+background:#0f241f;
+}
+
+footer h2{
+font-family:'Cormorant Garamond',serif;
+color:#E8D7B0;
+font-size:42px;
+margin-bottom:20px;
+}
+
+footer p{
+font-size:14px;
+color:#ddd;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+.food-card,
+.contact-box,
+.popup-box,
+.gold-btn{
+transition:all .4s ease;
+}
+
+.fade-up{
+opacity:0;
+transform:translateY(50px);
+}
+
+.fade-up.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:38px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+section h2{
+font-size:38px;
+}
+
+section p{
+font-size:18px;
+}
+
+.logo{
+font-size:26px;
+}
+
+.food-card img{
+height:200px;
+}
+
+}
