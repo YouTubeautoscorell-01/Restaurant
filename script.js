@@ -72,47 +72,7 @@ updateCart();
 
 });
 
-/* =========================
-   CART PANEL CREATE
-========================= */
 
-const cartPanel =
-document.createElement("div");
-
-cartPanel.className =
-"cart-panel";
-
-cartPanel.innerHTML = `
-<h2>Your Order</h2>
-
-<div id="cartItems"></div>
-
-<h3 id="cartTotal">
-Total : ₹0
-</h3>
-
-<button id="clearCart">
-Clear Cart
-</button>
-`;
-
-document.body.appendChild(cartPanel);
-
-/* =========================
-   CART STYLE
-========================= */
-
-cartPanel.style.position="fixed";
-cartPanel.style.bottom="20px";
-cartPanel.style.right="20px";
-cartPanel.style.width="280px";
-cartPanel.style.background="#1e4037";
-cartPanel.style.color="#fff";
-cartPanel.style.padding="20px";
-cartPanel.style.border="1px solid #E8D7B0";
-cartPanel.style.zIndex="999";
-cartPanel.style.maxHeight="400px";
-cartPanel.style.overflowY="auto";
 
 /* =========================
    UPDATE CART
@@ -146,20 +106,6 @@ cartTotal.innerHTML=
 
 }
 
-/* =========================
-   CLEAR CART
-========================= */
-
-document
-.getElementById("clearCart")
-.addEventListener("click",()=>{
-
-cart=[];
-total=0;
-
-updateCart();
-
-});
 
 /* =========================
    BOOKING FORM
