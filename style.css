@@ -353,9 +353,10 @@ z-index:2;
 
 .location-image{
 width:100%;
-border-radius:8px;
+border-radius:15px;
 margin-top:40px;
-border:2px solid #E8D7B0;
+border:3px solid #D4AF37;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
 /* =========================
@@ -363,6 +364,7 @@ border:2px solid #E8D7B0;
 ========================= */
 
 .booking-form{
+background:#4D1524;
 max-width:700px;
 margin:50px auto;
 display:flex;
@@ -374,12 +376,12 @@ gap:20px;
 .booking-form textarea,
 .booking-form select{
 padding:16px;
-background:#1e4037;
-border:1px solid rgba(232,215,176,.4);
-color:white;
+background:#6A1B2E;
+border:1px solid #D4AF37;
+color:#fff;
 outline:none;
+border-radius:8px;
 }
-
 .booking-form button{
 padding:16px;
 background:transparent;
@@ -406,11 +408,11 @@ margin-top:50px;
 }
 
 .contact-box{
-background:#1e4037;
+background:#6A1B2E;
 padding:30px;
-border:1px solid rgba(232,215,176,.2);
+border:1px solid #D4AF37;
+border-radius:12px;
 }
-
 .contact-box h3{
 color:#E8D7B0;
 margin-bottom:15px;
@@ -425,7 +427,7 @@ font-size:28px;
 footer{
 padding:60px 20px;
 text-align:center;
-background:#0f241f;
+background:#2A0812;
 }
 
 footer h2{
