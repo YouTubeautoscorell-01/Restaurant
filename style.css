@@ -11,7 +11,7 @@ scroll-behavior:smooth;
 }
 
 body{
-background-color:#16352D;
+background-color:#3B0A16;
 
 background-image:
 
@@ -53,7 +53,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 z-index:999;
-background:rgba(0,0,0,.3);
+background:rgba(59,10,22,.95);
 backdrop-filter:blur(10px);
 }
 
@@ -270,7 +270,7 @@ margin-top:60px;
 }
 
 .food-card{
-background:#1b3b33;
+background:#5A1626;
 
 border:1px solid #d4b26f;
 
@@ -285,7 +285,7 @@ border-radius:12px;
 
 .food-card:hover{
 transform:translateY(-8px);
-box-shadow:0 15px 40px rgba(0,0,0,.3);
+box-shadow:0 15px 40px rgba(59,10,22,.95);
 }
 
 .food-card img{
@@ -489,6 +489,69 @@ font-size:26px;
 
 .food-card img{
 height:200px;
+}
+
+}
+.hide-food{
+display:none;
+}
+
+/* GALLERY */
+
+.food-gallery-section{
+padding:80px 20px;
+background:#45111D;
+}
+
+.gallery-header{
+text-align:center;
+margin-bottom:50px;
+}
+
+.gallery-header h2{
+font-size:56px;
+font-family:'Cormorant Garamond',serif;
+color:#F2D7A0;
+margin-bottom:15px;
+}
+
+.gallery-header p{
+max-width:700px;
+margin:auto;
+line-height:1.8;
+font-size:18px;
+}
+
+.food-gallery{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.food-gallery img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:8px;
+transition:.4s;
+}
+
+.food-gallery img:hover{
+transform:scale(1.05);
+}
+
+@media(max-width:768px){
+
+.food-gallery{
+grid-template-columns:1fr 1fr;
+}
+
+.food-gallery img{
+height:170px;
+}
+
+.gallery-header h2{
+font-size:42px;
 }
 
 }
