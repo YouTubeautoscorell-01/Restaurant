@@ -283,19 +283,6 @@ transition:.4s;
 border-radius:12px;
 }
 
-
-.food-card{
-background:#1b3b33;
-border:1px solid #d4b26f;
-
-box-shadow:
-0 0 0 1px rgba(212,178,111,.2),
-0 15px 35px rgba(0,0,0,.35);
-
-overflow:hidden;
-transition:.4s;
-border-radius:12px;
-}
 .food-card img{
 width:100%;
 height:220px;
@@ -509,8 +496,32 @@ display:none;
 /* GALLERY */
 
 .food-gallery-section{
+
 padding:80px 20px;
-background:#45111D;
+
+background-color:#45111D;
+
+background-image:
+
+linear-gradient(
+45deg,
+rgba(212,178,111,0.08) 25%,
+transparent 25%,
+transparent 75%,
+rgba(212,178,111,0.08) 75%
+),
+
+linear-gradient(
+-45deg,
+rgba(212,178,111,0.08) 25%,
+transparent 25%,
+transparent 75%,
+rgba(212,178,111,0.08) 75%
+);
+
+background-size:80px 80px;
+background-position:0 0,40px 40px;
+
 }
 
 .gallery-header{
