@@ -1,329 +1,680 @@
+
+/* =========================
+   RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+background-color:#3B0A16;
+
+background-image:
+
+linear-gradient(
+45deg,
+rgba(212,178,111,0.04) 25%,
+transparent 25%,
+transparent 75%,
+rgba(212,178,111,0.04) 75%
+),
+
+linear-gradient(
+-45deg,
+rgba(212,178,111,0.04) 25%,
+transparent 25%,
+transparent 75%,
+rgba(212,178,111,0.04) 75%
+);
+
+background-size:80px 80px;
+background-position:0 0,40px 40px;
+
+color:#F8F5ED;
+font-family:'Montserrat',sans-serif;
+overflow-x:hidden;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:25px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+background:rgba(59,10,22,.95);
+backdrop-filter:blur(10px);
+}
+
+.logo{
+font-size:34px;
+font-family:'Cormorant Garamond',serif;
+font-weight:700;
+color:#E8D7B0;
+letter-spacing:1px;
+}
+
+.menu-btn{
+width:42px;
+display:flex;
+flex-direction:column;
+gap:6px;
+cursor:pointer;
+}
+
+.menu-btn span{
+height:2px;
+background:#E8D7B0;
+border-radius:20px;
+}
+
 /* =========================
    MOBILE MENU
 ========================= */
 
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
+.mobile-menu{
+position:fixed;
+top:0;
+right:-100%;
+width:260px;
+height:100vh;
+background:#5A1626;
+display:flex;
+flex-direction:column;
+padding:120px 30px;
+gap:25px;
+transition:.4s;
+z-index:998;
+}
 
-menuBtn.addEventListener("click", () => {
-mobileMenu.classList.toggle("active");
-});
+.mobile-menu.active{
+right:0;
+}
+
+.mobile-menu a{
+color:#E8D7B0;
+text-decoration:none;
+font-size:18px;
+letter-spacing:1px;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero{
+height:100vh;
+background:url("images/hero.jpg") center center/cover;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero-overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.55);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+padding:20px;
+}
+
+.hero h1{
+font-family:'Cormorant Garamond',serif;
+font-size:60px;
+color:#E8D7B0;
+margin-bottom:25px;
+}
+
+.hero p{
+font-size:22px;
+max-width:700px;
+line-height:1.8;
+margin:auto;
+}
+
+/* =========================
+   DIVIDERS
+========================= */
+
+.divider{
+width:120px;
+height:2px;
+background:#E8D7B0;
+margin:25px auto;
+}
+
+.small-divider{
+width:80px;
+height:2px;
+background:#E8D7B0;
+margin:25px auto;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.gold-btn{
+display:inline-block;
+padding:14px 40px;
+border:1px solid #E8D7B0;
+background:transparent;
+color:#E8D7B0;
+text-decoration:none;
+margin-top:30px;
+cursor:pointer;
+transition:.4s;
+letter-spacing:2px;
+}
+
+.gold-btn:hover{
+background:#E8D7B0;
+color:#16352D;
+}
+
+/* =========================
+   SECTION COMMON
+========================= */
+
+section{
+padding:120px 25px;
+text-align:center;
+}
+
+section h2{
+font-size:50px;
+font-family:'Cormorant Garamond',serif;
+color:#E8D7B0;
+letter-spacing:6px;
+margin-bottom:15px;
+}
+
+section p{
+max-width:900px;
+margin:auto;
+font-size:22px;
+line-height:1.8;
+}
 
 /* =========================
    STORY POPUP
 ========================= */
 
-const storyBtn = document.getElementById("storyBtn");
-const storyPopup = document.getElementById("storyPopup");
-const closeStory = document.getElementById("closeStory");
-
-storyBtn.addEventListener("click", () => {
-storyPopup.classList.add("active");
-});
-
-closeStory.addEventListener("click", () => {
-storyPopup.classList.remove("active");
-});
-
-window.addEventListener("click", (e) => {
-if(e.target === storyPopup){
-storyPopup.classList.remove("active");
-}
-});
-
-/* =========================
-   ADD TO CART
-========================= */
-
-let cart = [];
-let total = 0;
-
-const foodButtons =
-document.querySelectorAll(".food-card button");
-
-foodButtons.forEach(btn=>{
-
-btn.addEventListener("click",()=>{
-
-const card =
-btn.parentElement;
-
-const name =
-card.querySelector("h3").innerText;
-
-const price =
-card.querySelector("span")
-.innerText
-.replace("₹","");
-
-cart.push(name);
-
-total += Number(price);
-
-btn.innerHTML = "Added ✓";
-
-setTimeout(()=>{
-btn.innerHTML = "Add To Cart";
-},1500);
-
-updateCart();
-
-});
-
-});
-
-
-
-/* =========================
-   UPDATE CART
-========================= */
-
-function updateCart(){
-
-const cartItems =
-document.getElementById("cartItems");
-
-const cartTotal =
-document.getElementById("cartTotal");
-
-cartItems.innerHTML="";
-
-cart.forEach(item=>{
-
-const div =
-document.createElement("div");
-
-div.innerHTML=item;
-
-div.style.marginBottom="8px";
-
-cartItems.appendChild(div);
-
-});
-
-cartTotal.innerHTML=
-`Total : ₹${total}`;
-
+.story-popup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.75);
+display:none;
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:2000;
 }
 
+.story-popup.active{
+display:flex;
+}
+
+.popup-box{
+background:#5A1626;
+padding:40px;
+max-width:700px;
+border:1px solid #E8D7B0;
+position:relative;
+}
+
+.popup-box h2{
+margin-bottom:20px;
+}
+
+.popup-box p{
+font-size:18px;
+line-height:1.8;
+}
+
+.close-popup{
+position:absolute;
+top:15px;
+right:20px;
+font-size:35px;
+cursor:pointer;
+color:#E8D7B0;
+}
+
+/* =========================
+   FOOD GRID
+========================= */
+
+.food-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+margin-top:60px;
+}
+
+.food-card{
+background:#5A1626;
+
+border:1px solid #d4b26f;
+
+box-shadow:
+0 0 0 1px rgba(212,178,111,.2),
+0 15px 35px rgba(0,0,0,.35);
+
+overflow:hidden;
+transition:.4s;
+border-radius:12px;
+}
+
+.food-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+display:block;
+}
+
+.food-card h3{
+font-size:30px;
+font-family:'Cormorant Garamond',serif;
+color:#E8D7B0;
+padding:15px;
+}
+
+.food-card p{
+font-size:15px;
+padding:0 15px;
+margin-bottom:15px;
+}
+
+.food-card span{
+display:block;
+font-size:22px;
+font-weight:600;
+color:#E8D7B0;
+margin-bottom:15px;
+}
+
+.food-card button{
+margin-bottom:20px;
+padding:12px 25px;
+background:transparent;
+border:1px solid #E8D7B0;
+color:#E8D7B0;
+cursor:pointer;
+transition:.3s;
+}
+
+.food-card button:hover{
+background:#E8D7B0;
+color:#16352D;
+}
+
+/* =========================
+   LOCATION SECTION
+========================= */
+
+.location-section{
+position:relative;
+background:url("images/navsari-restaurant.jpg") center center/cover fixed;
+
+min-height:100vh;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+padding:120px 25px;
+}
+}
+
+.location-overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.6);
+}
+
+.location-content{
+position:relative;
+z-index:2;
+}
+
+.location-image{
+width:100%;
+max-width:900px;
+height:500px;
+object-fit:cover;
+border-radius:15px;
+margin-top:40px;
+border:3px solid #D4AF37;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
 
 /* =========================
    BOOKING FORM
 ========================= */
 
-const bookingForm =
-document.getElementById("bookingForm");
+.booking-form{
+background:#4D1524;
+max-width:700px;
+margin:50px auto;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
 
-if(bookingForm){
+.booking-form input,
+.booking-form textarea,
+.booking-form select{
+padding:16px;
+background:#6A1B2E;
+border:1px solid #D4AF37;
+color:#fff;
+outline:none;
+border-radius:8px;
+}
+.booking-form button{
+padding:16px;
+background:transparent;
+border:1px solid #E8D7B0;
+color:#E8D7B0;
+cursor:pointer;
+transition:.4s;
+}
 
-bookingForm.addEventListener(
-"submit",
-function(e){
+.booking-form button:hover{
+background:#E8D7B0;
+color:#16352D;
+}
 
-e.preventDefault();
+/* =========================
+   CONTACT
+========================= */
 
-const name =
-document.getElementById("name").value;
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:50px;
+}
 
-const mobile =
-document.getElementById("mobile").value;
+.contact-box{
+background:#6A1B2E;
+padding:30px;
+border:1px solid #D4AF37;
+border-radius:12px;
+}
+.contact-box h3{
+color:#E8D7B0;
+margin-bottom:15px;
+font-family:'Cormorant Garamond',serif;
+font-size:28px;
+}
 
-if(mobile.length !== 10){
+/* =========================
+   FOOTER
+========================= */
 
-alert(
-"Please Enter Valid Mobile Number"
+footer{
+padding:60px 20px;
+text-align:center;
+background:#2A0812;
+}
+
+footer h2{
+font-family:'Cormorant Garamond',serif;
+color:#E8D7B0;
+font-size:42px;
+margin-bottom:20px;
+}
+
+footer p{
+font-size:14px;
+color:#ddd;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+.food-card,
+.contact-box,
+.popup-box,
+.gold-btn{
+transition:all .4s ease;
+}
+
+.fade-up{
+opacity:0;
+transform:translateY(50px);
+}
+
+.fade-up.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:38px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+section h2{
+font-size:38px;
+}
+
+section p{
+font-size:18px;
+}
+
+.logo{
+font-size:26px;
+}
+
+.food-card img{
+height:200px;
+}
+
+}
+.hide-food{
+display:none;
+}
+
+/* GALLERY */
+
+.food-gallery-section{
+
+padding:80px 20px;
+
+background-color:#3B0A16;
+
+background-image:
+
+linear-gradient(
+45deg,
+rgba(212,178,111,0.04) 25%,
+transparent 25%,
+transparent 75%,
+rgba(212,178,111,0.04) 75%
+),
+
+linear-gradient(
+-45deg,
+rgba(212,178,111,0.04) 25%,
+transparent 25%,
+transparent 75%,
+rgba(212,178,111,0.04) 75%
 );
 
-return;
+background-size:80px 80px;
+background-position:0 0,40px 40px;
 
 }
 
-alert(
-`Thank You ${name}
-
-Your Table Booking Request
-Has Been Submitted Successfully.`
-);
-
-bookingForm.reset();
-
-});
+.gallery-header{
+text-align:center;
+margin-bottom:50px;
 }
 
-/* =========================
-   FADE ANIMATION
-========================= */
-
-const observer =
-new IntersectionObserver(
-
-(entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
+.gallery-header h2{
+font-size:56px;
+font-family:'Cormorant Garamond',serif;
+color:#F2D7A0;
+margin-bottom:15px;
 }
 
-});
-
-},
-
-{
-threshold:0.2
+.gallery-header p{
+max-width:700px;
+margin:auto;
+line-height:1.8;
+font-size:18px;
 }
 
-);
+.food-gallery{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
 
-document
-.querySelectorAll(
-".food-card,.contact-box,.story-section,.location-section,.booking-section"
-)
-.forEach(el=>{
+.food-gallery img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:8px;
+transition:.4s;
+}
 
-el.classList.add("fade-up");
+.food-gallery img:hover{
+transform:scale(1.05);
+}
 
-observer.observe(el);
+@media(max-width:768px){
 
-});
+.food-gallery{
+grid-template-columns:1fr 1fr;
+}
 
-/* =========================
-   SCROLL TO TOP BUTTON
-========================= */
+.food-gallery img{
+height:170px;
+}
 
-const topBtn =
-document.createElement("button");
-
-topBtn.innerHTML="↑";
-
-document.body.appendChild(topBtn);
-
-topBtn.style.position="fixed";
-topBtn.style.bottom="20px";
-topBtn.style.left="20px";
-topBtn.style.width="50px";
-topBtn.style.height="50px";
-topBtn.style.border="none";
-topBtn.style.cursor="pointer";
-topBtn.style.fontSize="22px";
-topBtn.style.background="#E8D7B0";
-topBtn.style.color="#16352D";
-topBtn.style.borderRadius="50%";
-topBtn.style.display="none";
-topBtn.style.zIndex="999";
-
-window.addEventListener("scroll",()=>{
-
-if(window.scrollY > 500){
-
-topBtn.style.display="block";
-
-}else{
-
-topBtn.style.display="none";
+.gallery-header h2{
+font-size:42px;
+}
 
 }
 
-});
-
-topBtn.addEventListener("click",()=>{
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-});
-
-/* =========================
-   LOCATION BUTTON
-========================= */
-
-const exploreBtn =
-document.getElementById("exploreLocation");
-
-if(exploreBtn){
-
-exploreBtn.addEventListener("click",()=>{
-
-window.open(
-"https://maps.google.com/?q=Navsari+Gujarat",
-"_blank"
-);
-
-});
-
+.order-card{
+display:flex;
+flex-direction:column;
+gap:10px;
 }
 
-/* =========================
-   BOOKING SUCCESS CARD
-========================= */
-
-function bookingSuccess(){
-
-const success =
-document.createElement("div");
-
-success.innerHTML=
-"Booking Request Submitted Successfully ✓";
-
-success.style.position="fixed";
-success.style.top="30px";
-success.style.right="30px";
-success.style.background="#1e4037";
-success.style.color="#fff";
-success.style.padding="15px 25px";
-success.style.border="1px solid #E8D7B0";
-success.style.zIndex="9999";
-
-document.body.appendChild(success);
-
-setTimeout(()=>{
-success.remove();
-},3000);
-
+.order-card .gold-btn{
+margin-top:0;
+width:100%;
+padding:12px;
+font-size:15px;
+letter-spacing:1px;
 }
 
-/* =========================
-   PREMIUM PARALLAX
-========================= */
-
-window.addEventListener("scroll",()=>{
-
-const scroll =
-window.pageYOffset;
-
-const hero =
-document.querySelector(".hero");
-
-if(hero){
-
-hero.style.backgroundPositionY =
-scroll * 0.4 + "px";
-
+.order-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:8px;
+transition:.4s;
 }
 
-});
-
-/* =========================
-   LOADER
-========================= */
-
-window.addEventListener("load",()=>{
-
-const loader =
-document.getElementById("loader");
-
-if(loader){
-
-loader.style.opacity="0";
-
-setTimeout(()=>{
-loader.remove();
-},500);
-
+.order-card img:hover{
+transform:scale(1.05);
 }
 
-});
+@media(max-width:768px){
+
+.order-card img{
+height:170px;
+}
+
+.order-card .gold-btn{
+font-size:14px;
+padding:10px;
+}
+
+}
+.cart-box{
+max-width:700px;
+margin:60px auto;
+padding:25px;
+background:#5A1626;
+border:1px solid #D4AF37;
+border-radius:12px;
+}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.cart-item h4{
+font-size:18px;
+font-weight:500;
+}
+
+.cart-item p{
+font-size:18px;
+color:#D4AF37;
+margin:0;
+}
+
+.remove-btn{
+padding:6px 14px;
+background:#b00020;
+border:none;
+color:#fff;
+cursor:pointer;
+border-radius:5px;
+}
+
+#cartTotal{
+margin-top:20px;
+color:#E8D7B0;
+text-align:right;
+}
+
+.location-section{
+min-height:100vh;
+padding:80px 20px;
+}
+
+.location-image{
+height:320px;
+   }   }
