@@ -1,4 +1,3 @@
-style.css
 /* =========================
    RESET
 ========================= */
@@ -332,7 +331,16 @@ color:#16352D;
 
 .location-section{
 position:relative;
-background:url("images/navsari-restaurant.jpg") center/cover fixed;
+background:url("images/navsari-restaurant.jpg") center center/cover fixed;
+
+min-height:100vh;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+padding:120px 25px;
+}
 }
 
 .location-overlay{
@@ -348,6 +356,9 @@ z-index:2;
 
 .location-image{
 width:100%;
+max-width:900px;
+height:500px;
+object-fit:cover;
 border-radius:15px;
 margin-top:40px;
 border:3px solid #D4AF37;
@@ -576,3 +587,93 @@ font-size:42px;
 }
 
 }
+
+.order-card{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.order-card .gold-btn{
+margin-top:0;
+width:100%;
+padding:12px;
+font-size:15px;
+letter-spacing:1px;
+}
+
+.order-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:8px;
+transition:.4s;
+}
+
+.order-card img:hover{
+transform:scale(1.05);
+}
+
+@media(max-width:768px){
+
+.order-card img{
+height:170px;
+}
+
+.order-card .gold-btn{
+font-size:14px;
+padding:10px;
+}
+
+}
+.cart-box{
+max-width:700px;
+margin:60px auto;
+padding:25px;
+background:#5A1626;
+border:1px solid #D4AF37;
+border-radius:12px;
+}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.cart-item h4{
+font-size:18px;
+font-weight:500;
+}
+
+.cart-item p{
+font-size:18px;
+color:#D4AF37;
+margin:0;
+}
+
+.remove-btn{
+padding:6px 14px;
+background:#b00020;
+border:none;
+color:#fff;
+cursor:pointer;
+border-radius:5px;
+}
+
+#cartTotal{
+margin-top:20px;
+color:#E8D7B0;
+text-align:right;
+}
+
+.location-section{
+min-height:100vh;
+padding:80px 20px;
+}
+
+.location-image{
+height:320px;
+   }   }
