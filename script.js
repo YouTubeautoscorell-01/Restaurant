@@ -1,4 +1,4 @@
-
+import { saveOrder } from "./firebase.js";
 /* =========================
    MOBILE MENU
 ========================= */
@@ -119,21 +119,59 @@ updateCart();
 
 }
 
-document.getElementById("checkoutBtn").addEventListener("click",()=>{
+document.getElementById("checkoutBtn").addEventListener("click", async () => {
 
-if(cart.length===0){
+    if(cart.length===0){
 
-alert("Your cart is empty.");
+        alert("Your cart is empty.");
 
-return;
+        return;
 
-}
+    }
 
-alert(" your Order Placed in 5 to 10 minutes");
+    let total = 0;
 
-cart=[];
+    cart.forEach(item=>{
 
-updateCart();
+        total += item.price;
+
+    });
+
+    const order={
+
+        customerName:
+        document.getElementById("name")?.value || "Guest",
+
+        mobile:
+        document.getElementById("mobile")?.value || "",
+
+        items:cart,
+
+        total:total
+
+    };
+
+    try{
+
+        const orderId = await saveOrder(order);
+
+        alert(
+            "Order Placed Successfully\n\nOrder ID : " + orderId
+        );
+
+        localStorage.setItem("orderId",orderId);
+
+        cart=[];
+
+        updateCart();
+
+    }catch(error){
+
+        console.log(error);
+
+        alert("Order Failed");
+
+    }
 
 });
 
