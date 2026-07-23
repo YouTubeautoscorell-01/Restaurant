@@ -3,7 +3,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 import {
-getFirestore
+getFirestore,
+  collection,
+  addDoc,
+  serverTimestamp
 }
 from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
@@ -22,3 +25,25 @@ appId:"1:624519670365:web:f23d10079a9adf2c51bbb4"
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
+
+export async function saveOrder(order){
+
+    const docRef = await addDoc(collection(db,"orders"),{
+
+        customerName: order.customerName,
+
+        mobile: order.mobile,
+
+        items: order.items,
+
+        total: order.total,
+
+        status: "Pending",
+
+        createdAt: serverTimestamp()
+
+    });
+
+    return docRef.id;
+
+}
