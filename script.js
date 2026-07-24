@@ -1,3 +1,4 @@
+alert("script.js loaded");
 import { saveOrder } from "./firebase.js";
 /* =========================
    MOBILE MENU
