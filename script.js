@@ -119,59 +119,59 @@ updateCart();
 
 }
 
-document.getElementById("checkoutBtn").addEventListener("click", async () => {
+document.getElementById("checkoutBtn").addEventListener("click", async ()=>{
 
-    if(cart.length===0){
+if(cart.length===0){
 
-        alert("Your cart is empty.");
+alert("Cart Empty");
 
-        return;
+return;
 
-    }
+}
 
-    let total = 0;
+let total=0;
 
-    cart.forEach(item=>{
+cart.forEach(item=>{
 
-        total += item.price;
+total+=item.price;
 
-    });
+});
 
-    const order={
+try{
 
-        customerName:
-        document.getElementById("name")?.value || "Guest",
+const order=await addDoc(
 
-        mobile:
-        document.getElementById("mobile")?.value || "",
+collection(window.db,"orders"),
 
-        items:cart,
+{
 
-        total:total
+status:"Pending",
 
-    };
+createdAt:new Date(),
 
-    try{
+items:cart,
 
-        const orderId = await saveOrder(order);
+total:total
 
-        alert(
-            "Order Placed Successfully\n\nOrder ID : " + orderId
-        );
+}
 
-        localStorage.setItem("orderId",orderId);
+);
 
-        cart=[];
+alert("Order Placed");
 
-        updateCart();
+console.log(order.id);
 
-    }catch(error){
+cart=[];
 
-        console.log(error);
+updateCart();
 
-        alert("Order Failed");
+}catch(e){
 
-    }
+alert("Order Failed");
+
+console.log(e);
+
+}
 
 });
 
