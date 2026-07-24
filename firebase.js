@@ -1,5 +1,5 @@
 // Firebase SDK
-
+alert("Firebase File Loaded");
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 import {
@@ -47,31 +47,4 @@ export async function saveOrder(order){
     return docRef.id;
 
 }
-import {
-  collection,
-  addDoc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-async function testFirebase() {
-  try {
-
-    const docRef = await addDoc(
-      collection(window.db, "test"),
-      {
-        name: "Royal Navsari Dining",
-        time: new Date()
-      }
-    );
-
-    alert("✅ Firebase Connected Successfully");
-    console.log("Document ID:", docRef.id);
-
-  } catch (error) {
-
-    alert("❌ Firebase Connection Failed");
-    console.log(error);
-
-  }
-}
-
-testFirebase();
