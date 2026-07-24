@@ -1,50 +1,70 @@
-// Firebase SDK
-alert("Firebase File Loaded");
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+// ================= FIREBASE =================
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
-getFirestore,
+  getFirestore,
   collection,
   addDoc,
+  getDocs,
+  doc,
+  updateDoc,
+  onSnapshot,
+  query,
+  orderBy,
   serverTimestamp
-}
-from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// ================= CONFIG =================
 
 const firebaseConfig = {
 
-apiKey:"AIzaSyDi40oL-JtE9LXF8CPGFHHLL6Hqe4p_GDA",
-authDomain:"restaurant-63230.firebaseapp.com",
-projectId:"restaurant-63230",
-storageBucket:"restaurant-63230.firebasestorage.app",
-messagingSenderId:"624519670365",
-appId:"1:624519670365:web:f23d10079a9adf2c51bbb4"
+  apiKey: "AIzaSyDi40oL-JtE9LXF8CPGFHHLL6Hqe4p_GDA",
+
+  authDomain: "restaurant-63230.firebaseapp.com",
+
+  projectId: "restaurant-63230",
+
+  storageBucket: "restaurant-63230.firebasestorage.app",
+
+  messagingSenderId: "624519670365",
+
+  appId: "1:624519670365:web:f23d10079a9adf2c51bbb4"
 
 };
 
+// ================= INITIALIZE =================
+
 const app = initializeApp(firebaseConfig);
 
-export const db = getFirestore(app);
+const db = getFirestore(app);
 
-export async function saveOrder(order){
+// Global
 
-    const docRef = await addDoc(collection(db,"orders"),{
+window.db = db;
 
-        customerName: order.customerName,
+window.fb = {
 
-        mobile: order.mobile,
+  collection,
 
-        items: order.items,
+  addDoc,
 
-        total: order.total,
+  getDocs,
 
-        status: "Pending",
+  doc,
 
-        createdAt: serverTimestamp()
+  updateDoc,
 
-    });
+  onSnapshot,
 
-    return docRef.id;
+  query,
 
-}
+  orderBy,
 
+  serverTimestamp
+
+};
+
+alert("✅ Firebase Connected Successfully");
+
+console.log("Firebase Connected");
