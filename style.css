@@ -333,7 +333,7 @@ color:#16352D;
 position:relative;
 background:url("images/navsari-restaurant.jpg") center center/cover fixed;
 
-min-height:80vh;
+min-height:100vh;
 
 display:flex;
 align-items:center;
@@ -341,7 +341,7 @@ justify-content:center;
 
 padding:120px 25px;
 }
-}
+
 
 .location-overlay{
 position:absolute;
