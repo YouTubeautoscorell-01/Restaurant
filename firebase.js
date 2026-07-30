@@ -65,6 +65,4 @@ window.fb = {
 
 };
 
-alert("✅ Firebase Connected Successfully");
 
-console.log("Firebase Connected");
