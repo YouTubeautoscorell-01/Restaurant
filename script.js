@@ -186,37 +186,6 @@ updateCart();
 }
 
 
-/* =========================
-   CHECKOUT
-========================= */
-
-const checkoutBtn =
-document.getElementById("checkoutBtn");
-
-if(checkoutBtn){
-
-checkoutBtn.addEventListener("click",()=>{
-
-if(cart.length===0){
-
-alert("Your cart is empty.");
-
-return;
-
-}
-
-/* Firebase Save
-   Part 3 me add hoga */
-
-alert("Order Placed Successfully.");
-
-cart=[];
-
-updateCart();
-
-});
-
-}
 
 
 /* =========================
