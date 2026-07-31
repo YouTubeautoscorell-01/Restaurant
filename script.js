@@ -353,34 +353,42 @@ loader.remove();
 /* ==========================
    FIREBASE ORDER SAVE
 ========================== */
+async function saveOrderToFirebase(){
 
-async function saveOrderToFirebase() {
+try{
 
-try {
+const phone =
+localStorage.getItem("customerPhone");
 
-const order = {
+const order={
 
-items: cart,
+customerPhone:phone,
 
-total: cart.reduce((t, i) => t + (i.price * i.qty), 0),
+items:cart,
 
-status: "Pending",
+total:cart.reduce(
 
-createdAt: fb.serverTimestamp()
+(t,i)=>t+(i.price*i.qty),
+
+0
+
+),
+
+createdAt:fb.serverTimestamp()
 
 };
 
 await fb.addDoc(
 
-fb.collection(db, "orders"),
+fb.collection(db,"orders"),
 
 order
 
 );
 
-alert("✅ Order Saved");
+alert("Order Placed Successfully");
 
-} catch (e) {
+}catch(e){
 
 console.log(e);
 
@@ -397,11 +405,15 @@ alert("Firebase Error");
 const checkoutButton =
 document.getElementById("checkoutBtn");
 
-if (checkoutButton) {
+if(checkoutButton){
 
-checkoutButton.addEventListener("click", async () => {
+checkoutButton.addEventListener(
 
-if (cart.length == 0) {
+"click",
+
+async()=>{
+
+if(cart.length===0){
 
 alert("Cart Empty");
 
@@ -411,10 +423,12 @@ return;
 
 await saveOrderToFirebase();
 
-cart = [];
+cart=[];
 
 updateCart();
 
-});
+}
+
+);
 
 }
