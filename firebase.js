@@ -7,13 +7,17 @@ import {
   collection,
   addDoc,
   getDocs,
-  doc,
+  getDoc,
+  setDoc,
   updateDoc,
+  deleteDoc,
+  doc,
   onSnapshot,
   query,
   orderBy,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
 
 // ================= CONFIG =================
 
@@ -33,13 +37,15 @@ const firebaseConfig = {
 
 };
 
+
 // ================= INITIALIZE =================
 
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-// Global
+
+// ================= GLOBAL =================
 
 window.db = db;
 
@@ -51,9 +57,15 @@ window.fb = {
 
   getDocs,
 
-  doc,
+  getDoc,
+
+  setDoc,
 
   updateDoc,
+
+  deleteDoc,
+
+  doc,
 
   onSnapshot,
 
@@ -65,4 +77,4 @@ window.fb = {
 
 };
 
-
+console.log("Firebase Connected Successfully");
