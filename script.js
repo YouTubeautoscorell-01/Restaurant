@@ -1,5 +1,5 @@
 /* ==========================================
-   CUSTOMER APP - FINAL SCRIPT
+   CUSTOMER APP - COMPLETE SCRIPT.JS
 ========================================== */
 
 
@@ -7,8 +7,11 @@
    MOBILE MENU
 ========================= */
 
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
+const menuBtn =
+  document.getElementById("menuBtn");
+
+const mobileMenu =
+  document.getElementById("mobileMenu");
 
 if (menuBtn && mobileMenu) {
 
@@ -25,9 +28,14 @@ if (menuBtn && mobileMenu) {
    STORY POPUP
 ========================= */
 
-const storyBtn = document.getElementById("storyBtn");
-const storyPopup = document.getElementById("storyPopup");
-const closeStory = document.getElementById("closeStory");
+const storyBtn =
+  document.getElementById("storyBtn");
+
+const storyPopup =
+  document.getElementById("storyPopup");
+
+const closeStory =
+  document.getElementById("closeStory");
 
 if (storyBtn && storyPopup) {
 
@@ -51,7 +59,10 @@ if (closeStory && storyPopup) {
 
 window.addEventListener("click", (e) => {
 
-  if (storyPopup && e.target === storyPopup) {
+  if (
+    storyPopup &&
+    e.target === storyPopup
+  ) {
 
     storyPopup.classList.remove("active");
 
@@ -83,6 +94,7 @@ addButtons.forEach((button) => {
 
     if (!card) return;
 
+
     const nameElement =
       card.querySelector("h3");
 
@@ -90,12 +102,9 @@ addButtons.forEach((button) => {
       card.querySelector(".food-price");
 
     if (!nameElement || !priceElement) {
-
-      alert("Food information not found.");
-
       return;
-
     }
+
 
     const name =
       nameElement.innerText.trim();
@@ -107,19 +116,26 @@ addButtons.forEach((button) => {
         10
       );
 
+
     if (!name || isNaN(price)) {
 
-      alert("Invalid food information.");
+      alert("Unable to add this item.");
 
       return;
 
     }
 
 
-    /* Check existing item */
+    /*
+     * If same item already exists,
+     * increase quantity instead of
+     * creating duplicate cart item.
+     */
 
     const existingItem =
-      cart.find(item => item.name === name);
+      cart.find(
+        item => item.name === name
+      );
 
 
     if (existingItem) {
@@ -143,11 +159,15 @@ addButtons.forEach((button) => {
 
     updateCart();
 
-    button.innerHTML = "Added ✓";
+
+    button.innerHTML =
+      "Added ✓";
+
 
     setTimeout(() => {
 
-      button.innerHTML = "Add To Cart";
+      button.innerHTML =
+        "Add To Cart";
 
     }, 1000);
 
@@ -169,10 +189,13 @@ function updateCart() {
     document.getElementById("cartTotal");
 
 
-  if (!cartItems || !cartTotal) return;
+  if (!cartItems || !cartTotal) {
+    return;
+  }
 
 
   cartItems.innerHTML = "";
+
 
   let total = 0;
 
@@ -180,7 +203,8 @@ function updateCart() {
   cart.forEach((item, index) => {
 
     total +=
-      item.price * item.qty;
+      Number(item.price) *
+      Number(item.qty);
 
 
     cartItems.innerHTML += `
@@ -189,7 +213,9 @@ function updateCart() {
 
         <div>
 
-          <h4>${item.name}</h4>
+          <h4>
+            ${item.name}
+          </h4>
 
           <p>
 
@@ -199,6 +225,7 @@ function updateCart() {
           </p>
 
         </div>
+
 
         <button
           class="remove-btn"
@@ -236,13 +263,18 @@ function removeItem(index) {
 
   }
 
+
   cart.splice(index, 1);
 
   updateCart();
 
 }
 
-window.removeItem = removeItem;
+
+/* Make available to HTML */
+
+window.removeItem =
+  removeItem;
 
 
 /* =========================
@@ -254,54 +286,57 @@ const bookingForm =
 
 if (bookingForm) {
 
-  bookingForm.addEventListener("submit", (e) => {
+  bookingForm.addEventListener(
+    "submit",
+    (e) => {
 
-    e.preventDefault();
-
-
-    const nameElement =
-      document.getElementById("name");
-
-    const mobileElement =
-      document.getElementById("mobile");
+      e.preventDefault();
 
 
-    const name =
-      nameElement
-        ? nameElement.value.trim()
-        : "";
+      const nameElement =
+        document.getElementById("name");
+
+      const mobileElement =
+        document.getElementById("mobile");
 
 
-    const mobile =
-      mobileElement
-        ? mobileElement.value.trim()
-        : "";
+      const name =
+        nameElement
+          ? nameElement.value.trim()
+          : "";
 
 
-    if (mobile.length !== 10) {
+      const mobile =
+        mobileElement
+          ? mobileElement.value.trim()
+          : "";
+
+
+      if (mobile.length !== 10) {
+
+        alert(
+          "Please Enter Valid Mobile Number"
+        );
+
+        return;
+
+      }
+
 
       alert(
-        "Please Enter Valid Mobile Number"
-      );
 
-      return;
-
-    }
-
-
-    alert(
-
-      `Thank You ${name}
+        `Thank You ${name}
 
 Your Table Booking Request
 Has Been Submitted Successfully.`
 
-    );
+      );
 
 
-    bookingForm.reset();
+      bookingForm.reset();
 
-  });
+    }
+  );
 
 }
 
@@ -317,14 +352,23 @@ const exploreBtn =
 
 if (exploreBtn) {
 
-  exploreBtn.addEventListener("click", () => {
+  exploreBtn.addEventListener(
+    "click",
+    () => {
 
-    window.open(
-      "https://maps.google.com/?q=Restaurant",
-      "_blank"
-    );
+      /*
+       * Change the Google Maps search
+       * to your restaurant location
+       * if required.
+       */
 
-  });
+      window.open(
+        "https://maps.google.com/",
+        "_blank"
+      );
+
+    }
+  );
 
 }
 
@@ -336,9 +380,11 @@ if (exploreBtn) {
 const topBtn =
   document.createElement("button");
 
-topBtn.id = "topBtn";
+topBtn.id =
+  "topBtn";
 
-topBtn.innerHTML = "↑";
+topBtn.innerHTML =
+  "↑";
 
 document.body.appendChild(topBtn);
 
@@ -347,28 +393,33 @@ window.addEventListener("scroll", () => {
 
   if (window.scrollY > 400) {
 
-    topBtn.style.display = "block";
+    topBtn.style.display =
+      "block";
 
   } else {
 
-    topBtn.style.display = "none";
+    topBtn.style.display =
+      "none";
 
   }
 
 });
 
 
-topBtn.addEventListener("click", () => {
+topBtn.addEventListener(
+  "click",
+  () => {
 
-  window.scrollTo({
+    window.scrollTo({
 
-    top: 0,
+      top: 0,
 
-    behavior: "smooth"
+      behavior: "smooth"
 
-  });
+    });
 
-});
+  }
+);
 
 
 /* =========================
@@ -380,9 +431,12 @@ window.addEventListener("load", () => {
   const loader =
     document.getElementById("loader");
 
+
   if (loader) {
 
-    loader.style.opacity = "0";
+    loader.style.opacity =
+      "0";
+
 
     setTimeout(() => {
 
@@ -396,14 +450,16 @@ window.addEventListener("load", () => {
 
 
 /* ==========================================
-   FIREBASE ORDER SAVE
+   SAVE ORDER TO FIREBASE
 ========================================== */
 
 async function saveOrderToFirebase() {
 
   try {
 
-    /* Firebase ready check */
+    /* =========================
+       FIREBASE CHECK
+    ========================= */
 
     if (
       !window.db ||
@@ -419,7 +475,9 @@ async function saveOrderToFirebase() {
     }
 
 
-    /* Customer phone */
+    /* =========================
+       CUSTOMER PHONE
+    ========================= */
 
     const phone =
       localStorage.getItem(
@@ -430,7 +488,7 @@ async function saveOrderToFirebase() {
     if (!phone) {
 
       alert(
-        "Customer login required."
+        "Please login first."
       );
 
       return false;
@@ -438,7 +496,9 @@ async function saveOrderToFirebase() {
     }
 
 
-    /* Cart check */
+    /* =========================
+       CART CHECK
+    ========================= */
 
     if (
       !Array.isArray(cart) ||
@@ -452,128 +512,80 @@ async function saveOrderToFirebase() {
     }
 
 
-    /* Clean cart */
+    /* =========================
+       CLEAN CART ITEMS
+    ========================= */
 
     const newItems =
-      cart.map(item => ({
+      cart.map((item) => ({
 
-        name: String(item.name),
+        name:
+          String(item.name),
 
-        price: Number(item.price),
+        price:
+          Number(item.price),
 
-        qty: Number(item.qty)
+        qty:
+          Number(item.qty)
 
       }));
 
 
-    /* Same customer = same bill */
+    /* =========================
+       ORDER TOTAL
+    ========================= */
 
-    const orderRef =
-      fb.doc(
-        db,
-        "activeOrders",
-        phone
-      );
+    const newTotal =
+      newItems.reduce(
+        (total, item) => {
 
+          return total +
+            (
+              item.price *
+              item.qty
+            );
 
-    /* Check existing order */
-
-    const oldOrder =
-      await fb.getDoc(orderRef);
-
-
-    let finalItems = [];
-
-
-    if (oldOrder.exists()) {
-
-      const oldData =
-        oldOrder.data();
-
-
-      finalItems =
-        Array.isArray(oldData.items)
-          ? oldData.items.map(item => ({
-
-              name: String(item.name),
-
-              price: Number(item.price),
-
-              qty: Number(item.qty)
-
-            }))
-          : [];
-
-
-      /* Merge new items */
-
-      newItems.forEach(newItem => {
-
-        const existingIndex =
-          finalItems.findIndex(
-            item =>
-              item.name === newItem.name
-          );
-
-
-        if (existingIndex !== -1) {
-
-          finalItems[existingIndex].qty +=
-            newItem.qty;
-
-        } else {
-
-          finalItems.push({
-
-            name: newItem.name,
-
-            price: newItem.price,
-
-            qty: newItem.qty
-
-          });
-
-        }
-
-      });
-
-
-    } else {
-
-      finalItems = newItems;
-
-    }
-
-
-    /* Calculate total */
-
-    const finalTotal =
-      finalItems.reduce(
-        (total, item) =>
-          total +
-          (
-            Number(item.price) *
-            Number(item.qty)
-          ),
+        },
         0
       );
 
 
-    /* Save */
+    /* =================================
+       1. SEND SEPARATE ORDER TO CHEF
+       =================================
 
-    await fb.setDoc(
+       Every checkout creates a NEW
+       document in "orders".
 
-      orderRef,
+       Therefore:
+
+       Order 1 = Box 1
+       Order 2 = Box 2
+       Order 3 = Box 3
+
+       Even if customer uses the
+       same mobile number.
+    */
+
+    await fb.addDoc(
+
+      fb.collection(
+        db,
+        "orders"
+      ),
 
       {
 
-        customerPhone: phone,
+        customerPhone:
+          phone,
 
-        items: finalItems,
+        items:
+          newItems,
 
-        total: finalTotal,
+        total:
+          newTotal,
 
-        updatedAt:
+        createdAt:
           fb.serverTimestamp()
 
       }
@@ -581,7 +593,171 @@ async function saveOrderToFirebase() {
     );
 
 
-    /* Clear cart */
+    /* =================================
+       2. UPDATE BILLING APP
+       =================================
+
+       Billing uses the customer phone
+       as the document ID.
+
+       Same customer =
+       same billing document.
+
+       Chef remains separate.
+    */
+
+    const billRef =
+      fb.doc(
+        db,
+        "activeOrders",
+        phone
+      );
+
+
+    const oldBill =
+      await fb.getDoc(
+        billRef
+      );
+
+
+    let finalItems = [];
+
+
+    /* =========================
+       EXISTING BILL
+    ========================= */
+
+    if (oldBill.exists()) {
+
+      const oldData =
+        oldBill.data();
+
+
+      if (
+        Array.isArray(
+          oldData.items
+        )
+      ) {
+
+        finalItems =
+          oldData.items.map(
+            (item) => ({
+
+              name:
+                String(item.name),
+
+              price:
+                Number(item.price),
+
+              qty:
+                Number(item.qty)
+
+            })
+          );
+
+      }
+
+    }
+
+
+    /* =========================
+       MERGE NEW ITEMS
+    ========================= */
+
+    newItems.forEach(
+      (newItem) => {
+
+        const existingIndex =
+          finalItems.findIndex(
+            (item) =>
+              item.name ===
+              newItem.name
+          );
+
+
+        if (
+          existingIndex !== -1
+        ) {
+
+          finalItems[
+            existingIndex
+          ].qty +=
+            newItem.qty;
+
+        } else {
+
+          finalItems.push({
+
+            name:
+              newItem.name,
+
+            price:
+              newItem.price,
+
+            qty:
+              newItem.qty
+
+          });
+
+        }
+
+      }
+    );
+
+
+    /* =========================
+       FINAL BILL TOTAL
+    ========================= */
+
+    const finalTotal =
+      finalItems.reduce(
+        (total, item) => {
+
+          return total +
+            (
+              Number(item.price) *
+              Number(item.qty)
+            );
+
+        },
+        0
+      );
+
+
+    /* =========================
+       SAVE BILL
+    ========================= */
+
+    await fb.setDoc(
+
+      billRef,
+
+      {
+
+        customerPhone:
+          phone,
+
+        items:
+          finalItems,
+
+        total:
+          finalTotal,
+
+        updatedAt:
+          fb.serverTimestamp()
+
+      },
+
+      {
+        merge: true
+      }
+
+    );
+
+
+    /* =========================
+       SUCCESS
+    ========================= */
 
     cart = [];
 
@@ -599,7 +775,7 @@ async function saveOrderToFirebase() {
   } catch (error) {
 
     console.error(
-      "FIREBASE ORDER ERROR:",
+      "Firebase Order Error:",
       error
     );
 
@@ -633,7 +809,9 @@ if (checkoutButton) {
     "click",
     async () => {
 
-      if (cart.length === 0) {
+      if (
+        cart.length === 0
+      ) {
 
         alert("Cart Empty");
 
@@ -648,10 +826,3 @@ if (checkoutButton) {
   );
 
 }
-
-
-/* =========================
-   INITIAL CART
-========================= */
-
-updateCart();
