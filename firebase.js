@@ -1,53 +1,108 @@
-// ================= FIREBASE =================
+// ==========================================
+// CUSTOMER APP - FIREBASE.JS
+// ==========================================
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+/* =========================
+   FIREBASE APP
+========================= */
 
 import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+/* =========================
+   FIRESTORE
+========================= */
+
+import {
+
   getFirestore,
+
   collection,
+
   addDoc,
+
   getDocs,
+
   getDoc,
+
   setDoc,
+
   updateDoc,
+
   deleteDoc,
+
   doc,
+
   onSnapshot,
+
   query,
+
   orderBy,
+
   serverTimestamp
+
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-// ================= CONFIG =================
+/* =========================
+   FIREBASE CONFIG
+========================= */
 
 const firebaseConfig = {
 
-  apiKey: "AIzaSyDi40oL-JtE9LXF8CPGFHHLL6Hqe4p_GDA",
+  apiKey:
+    "AIzaSyDi40oL-JtE9LXF8CPGFHHLL6Hqe4p_GDA",
 
-  authDomain: "restaurant-63230.firebaseapp.com",
+  authDomain:
+    "restaurant-63230.firebaseapp.com",
 
-  projectId: "restaurant-63230",
+  projectId:
+    "restaurant-63230",
 
-  storageBucket: "restaurant-63230.firebasestorage.app",
+  storageBucket:
+    "restaurant-63230.firebasestorage.app",
 
-  messagingSenderId: "624519670365",
+  messagingSenderId:
+    "624519670365",
 
-  appId: "1:624519670365:web:f23d10079a9adf2c51bbb4"
+  appId:
+    "1:624519670365:web:f23d10079a9adf2c51bbb4"
 
 };
 
 
-// ================= INITIALIZE =================
+/* =========================
+   INITIALIZE FIREBASE
+========================= */
 
-const app = initializeApp(firebaseConfig);
+const app =
+  initializeApp(
+    firebaseConfig
+  );
 
-const db = getFirestore(app);
+
+/* =========================
+   FIRESTORE DATABASE
+========================= */
+
+const db =
+  getFirestore(app);
 
 
-// ================= GLOBAL =================
+/* =========================
+   GLOBAL DATABASE
+========================= */
 
-window.db = db;
+window.db =
+  db;
+
+
+/* =========================
+   GLOBAL FIREBASE FUNCTIONS
+========================= */
 
 window.fb = {
 
@@ -77,4 +132,11 @@ window.fb = {
 
 };
 
-console.log("Firebase Connected Successfully");
+
+/* =========================
+   CONNECTION MESSAGE
+========================= */
+
+console.log(
+  "Customer Firebase Connected Successfully"
+);
