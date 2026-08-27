@@ -1,11 +1,3 @@
-/* ===========================================
-   STYLE.CSS
-   PART 1A
-   RESET + BODY + NAVBAR + HERO
-=========================================== */
-
-/* RESET */
-
 *{
 margin:0;
 padding:0;
@@ -42,7 +34,10 @@ background-size:80px 80px;
 background-position:0 0,40px 40px;
 }
 
-/* NAVBAR */
+
+/* =========================
+NAVBAR
+========================= */
 
 .navbar{
 position:fixed;
@@ -67,8 +62,6 @@ color:#E8D7B0;
 letter-spacing:2px;
 }
 
-/* MENU BUTTON */
-
 .menu-btn{
 display:flex;
 flex-direction:column;
@@ -85,7 +78,10 @@ border-radius:30px;
 transition:.3s;
 }
 
-/* MOBILE MENU */
+
+/* =========================
+MOBILE MENU
+========================= */
 
 .mobile-menu{
 position:fixed;
@@ -111,15 +107,12 @@ text-decoration:none;
 color:#E8D7B0;
 font-size:18px;
 letter-spacing:1px;
-transition:.3s;
 }
 
-.mobile-menu a:hover{
-padding-left:8px;
-color:#fff;
-}
 
-/* HERO */
+/* =========================
+HERO
+========================= */
 
 .hero{
 position:relative;
@@ -128,7 +121,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-background:url("images/hero.jpg") center center/cover no-repeat;
+background:url("images/hero.jpg") center/cover no-repeat;
 }
 
 .hero-overlay{
@@ -158,8 +151,6 @@ font-size:22px;
 line-height:1.8;
 }
 
-/* DIVIDER */
-
 .divider{
 width:120px;
 height:2px;
@@ -174,7 +165,10 @@ background:#E8D7B0;
 margin:20px auto;
 }
 
-/* BUTTON */
+
+/* =========================
+BUTTON
+========================= */
 
 .gold-btn{
 display:inline-block;
@@ -192,9 +186,14 @@ transition:.35s;
 .gold-btn:hover{
 background:#E8D7B0;
 color:#3B0A16;
+transform:translateY(-3px);
+box-shadow:0 8px 20px rgba(212,175,55,.35);
 }
 
-/* COMMON SECTION */
+
+/* =========================
+COMMON SECTION
+========================= */
 
 section{
 padding:80px 20px;
@@ -216,68 +215,26 @@ font-size:20px;
 line-height:1.8;
 }
 
-/* MOBILE */
 
-@media(max-width:768px){
-
-.logo{
-font-size:24px;
-}
-
-.hero h1{
-font-size:38px;
-}
-
-.hero p{
-font-size:18px;
-}
-
-section h2{
-font-size:36px;
-}
-
-section p{
-font-size:17px;
-}
-
-}
-/* ===========================================
-   STYLE.CSS
-   PART 1B
-   STORY SECTION + STORY POPUP
-=========================================== */
-
-/* STORY SECTION */
+/* =========================
+STORY
+========================= */
 
 .story-section{
 padding:100px 20px;
 text-align:center;
 }
 
-.story-section h2{
-font-size:52px;
-font-family:'Cormorant Garamond',serif;
-color:#E8D7B0;
-letter-spacing:4px;
-margin-bottom:15px;
-}
-
 .story-section p{
 max-width:850px;
-margin:0 auto;
+margin:auto;
 font-size:20px;
 line-height:2;
-color:#F8F5ED;
 }
 
-/* STORY BUTTON */
-
-#storyBtn{
-margin-top:35px;
-}
 
 /* =========================
-   STORY POPUP
+STORY POPUP
 ========================= */
 
 .story-popup{
@@ -308,7 +265,6 @@ padding:40px;
 border-radius:15px;
 border:2px solid #D4AF37;
 box-shadow:0 20px 45px rgba(0,0,0,.45);
-animation:popup .35s ease;
 }
 
 .popup-box h2{
@@ -316,13 +272,11 @@ font-size:42px;
 font-family:'Cormorant Garamond',serif;
 color:#E8D7B0;
 margin-bottom:20px;
-letter-spacing:2px;
 }
 
 .popup-box p{
 font-size:18px;
 line-height:1.9;
-color:#F8F5ED;
 }
 
 .close-popup{
@@ -332,86 +286,15 @@ right:20px;
 font-size:36px;
 color:#E8D7B0;
 cursor:pointer;
-transition:.3s;
 }
 
-.close-popup:hover{
-color:#fff;
-transform:rotate(90deg);
-}
 
-/* POPUP ANIMATION */
-
-@keyframes popup{
-
-0%{
-opacity:0;
-transform:scale(.8);
-}
-
-100%{
-opacity:1;
-transform:scale(1);
-}
-
-}
-
-/* FADE ANIMATION */
-
-.fade-up{
-opacity:0;
-transform:translateY(40px);
-transition:all .8s ease;
-}
-
-.fade-up.show{
-opacity:1;
-transform:translateY(0);
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.story-section{
-padding:80px 20px;
-}
-
-.story-section h2{
-font-size:38px;
-}
-
-.story-section p{
-font-size:17px;
-line-height:1.8;
-}
-
-.popup-box{
-padding:25px;
-}
-
-.popup-box h2{
-font-size:30px;
-}
-
-.popup-box p{
-font-size:16px;
-}
-
-.close-popup{
-font-size:30px;
-}
-
-}
-/* ===========================================
-   STYLE.CSS
-   PART 2A
-   PREMIUM FOOD GALLERY
-=========================================== */
+/* =========================
+FOOD GALLERY
+========================= */
 
 .food-gallery-section{
 padding:80px 20px;
-background:transparent;
 }
 
 .gallery-header{
@@ -424,7 +307,6 @@ font-size:54px;
 font-family:'Cormorant Garamond',serif;
 color:#E8D7B0;
 letter-spacing:4px;
-margin-bottom:15px;
 }
 
 .gallery-header p{
@@ -435,10 +317,6 @@ line-height:1.8;
 color:#ddd;
 }
 
-/* =========================
-   FOOD GRID
-========================= */
-
 .food-gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
@@ -446,426 +324,239 @@ gap:22px;
 align-items:stretch;
 }
 
+
 /* =========================
-   FOOD CARD
+FOOD CARD
 ========================= */
 
 .order-card{
-
 background:#5A1626;
-
 border:1px solid #D4AF37;
-
 border-radius:16px;
-
 overflow:hidden;
-
 display:flex;
-
 flex-direction:column;
-
 height:100%;
-
 transition:.35s;
-
 box-shadow:0 10px 25px rgba(0,0,0,.35);
-
 }
 
 .order-card:hover{
-
 transform:translateY(-8px);
-
 box-shadow:0 18px 40px rgba(0,0,0,.45);
-
 }
 
-/* IMAGE */
-
 .order-card img{
-
 width:100%;
-
 height:180px;
-
 display:block;
-
 object-fit:cover;
-
 transition:.5s;
-
-background:#4A1220;
-
 }
 
 .order-card:hover img{
-
 transform:scale(1.08);
-
 }
-
-/* TITLE */
 
 .order-card h3{
-
 font-family:'Cormorant Garamond',serif;
-
 font-size:22px;
-
 color:#E8D7B0;
-
 padding:15px 10px 8px;
-
 text-align:center;
-
 min-height:60px;
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 }
-
-/* PRICE */
 
 .food-price{
-
 font-size:24px;
-
 font-weight:bold;
-
 text-align:center;
-
 color:#FFD76A;
-
-margin-bottom:15px;
-
+margin-bottom:12px;
 }
 
-/* BUTTON */
 
-.order-card .gold-btn{
+/* =========================
+QUANTITY CONTROLS
+========================= */
 
-width:calc(100% - 30px);
+.cart-controls{
+display:flex;
+align-items:center;
+gap:6px;
+width:calc(100% - 20px);
+margin:auto 10px 15px;
+}
 
-margin:auto 15px 15px;
+.qty-btn{
+width:38px;
+height:42px;
+flex-shrink:0;
 
-padding:12px;
-
-font-size:15px;
-
-letter-spacing:1px;
-
+border:1px solid #D4AF37;
 border-radius:8px;
 
+background:#3B0A16;
+color:#FFD76A;
+
+font-size:23px;
+font-weight:bold;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+cursor:pointer;
 }
+
+.qty-btn:hover{
+background:#D4AF37;
+color:#3B0A16;
+}
+
+.qty-btn:active{
+transform:scale(.94);
+}
+
+.qty-number{
+min-width:24px;
+text-align:center;
+color:#fff;
+font-size:17px;
+font-weight:600;
+}
+
+.cart-controls .add-cart{
+flex:1;
+min-width:0;
+margin:0;
+padding:11px 5px;
+font-size:12px;
+letter-spacing:.5px;
+white-space:nowrap;
+}
+
 
 /* =========================
-   SAME HEIGHT FOR ALL CARDS
+CART
 ========================= */
-
-.order-card>*{
-flex-shrink:0;
-}
-
-.order-card .gold-btn{
-margin-top:auto;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:768px){
-
-.food-gallery{
-
-grid-template-columns:repeat(2,1fr);
-
-gap:15px;
-
-}
-
-.order-card img{
-
-height:145px;
-
-}
-
-.order-card h3{
-
-font-size:18px;
-
-min-height:55px;
-
-}
-
-.food-price{
-
-font-size:20px;
-
-}
-
-.order-card .gold-btn{
-
-padding:10px;
-
-font-size:14px;
-
-}
-
-}
-/* ===========================================
-   STYLE.CSS
-   PART 2B
-   PREMIUM CART
-=========================================== */
-
-/* CART */
 
 .cart-box{
-
 max-width:900px;
 margin:70px auto;
 padding:30px;
-
 background:#5A1626;
-
 border:1px solid #D4AF37;
-
 border-radius:16px;
-
 box-shadow:0 15px 35px rgba(0,0,0,.35);
-
 }
 
 .cart-box h2{
-
 font-family:'Cormorant Garamond',serif;
-
 font-size:42px;
-
 color:#E8D7B0;
-
 text-align:center;
-
 margin-bottom:30px;
-
-letter-spacing:2px;
-
 }
-
-/* CART ITEM */
 
 .cart-item{
-
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
-
 padding:18px 0;
-
 border-bottom:1px solid rgba(255,255,255,.12);
-
 gap:15px;
-
-}
-
-.cart-item:last-child{
-
-border-bottom:none;
-
 }
 
 .cart-item div{
-
 flex:1;
-
 }
 
 .cart-item h4{
-
 font-size:20px;
-
-font-weight:600;
-
 color:#fff;
-
 margin-bottom:5px;
-
 }
 
 .cart-item p{
-
 font-size:18px;
-
 color:#FFD76A;
-
 margin:0;
-
 }
 
-/* REMOVE BUTTON */
+
+/* CART QUANTITY */
+
+.cart-quantity{
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.cart-qty-btn{
+width:34px;
+height:34px;
+border:1px solid #D4AF37;
+border-radius:7px;
+background:#3B0A16;
+color:#FFD76A;
+font-size:20px;
+cursor:pointer;
+}
+
+.cart-qty-number{
+min-width:25px;
+text-align:center;
+font-weight:bold;
+color:#fff;
+}
+
+
+/* REMOVE */
 
 .remove-btn{
-
 background:#C62828;
-
 color:#fff;
-
 border:none;
-
 padding:9px 18px;
-
 border-radius:8px;
-
 cursor:pointer;
-
 font-size:15px;
-
-transition:.3s;
-
 }
-
-.remove-btn:hover{
-
-background:#8E0000;
-
-transform:scale(1.05);
-
-}
-
-/* TOTAL */
 
 #cartTotal{
-
 margin-top:25px;
-
 padding-top:20px;
-
 border-top:1px solid rgba(255,255,255,.15);
-
 font-size:28px;
-
 font-weight:700;
-
 color:#FFD76A;
-
 text-align:right;
-
 }
-
-/* CHECKOUT BUTTON */
 
 #checkoutBtn{
-
 width:100%;
-
 margin-top:25px;
-
 padding:16px;
-
 font-size:18px;
-
-letter-spacing:2px;
-
 border-radius:10px;
-
 }
-
-/* EMPTY CART */
 
 #cartItems:empty::before{
-
 content:"Your cart is empty.";
-
 display:block;
-
 text-align:center;
-
 padding:25px;
-
 font-size:18px;
-
 color:#ccc;
-
 }
 
-/* MOBILE */
-
-@media(max-width:768px){
-
-.cart-box{
-
-padding:20px;
-
-margin:40px 15px;
-
-}
-
-.cart-box h2{
-
-font-size:32px;
-
-}
-
-.cart-item{
-
-flex-direction:column;
-
-align-items:flex-start;
-
-}
-
-.cart-item h4{
-
-font-size:18px;
-
-}
-
-.cart-item p{
-
-font-size:17px;
-
-}
-
-.remove-btn{
-
-width:100%;
-
-margin-top:10px;
-
-}
-
-#cartTotal{
-
-text-align:left;
-
-font-size:24px;
-
-}
-
-#checkoutBtn{
-
-font-size:16px;
-
-padding:14px;
-
-}
-
-}
-/* ===========================================
-   STYLE.CSS
-   PART 3A
-   LOCATION + BOOKING
-=========================================== */
 
 /* =========================
-   LOCATION SECTION
+LOCATION
 ========================= */
 
 .location-section{
@@ -881,11 +572,8 @@ overflow:hidden;
 .location-section::before{
 content:"";
 position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:url("images/navsari-restaurant.jpg") center center/cover no-repeat;
+inset:0;
+background:url("images/navsari-restaurant.jpg") center/cover no-repeat;
 filter:brightness(.35);
 z-index:-2;
 }
@@ -893,10 +581,7 @@ z-index:-2;
 .location-section::after{
 content:"";
 position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
+inset:0;
 background:rgba(59,10,22,.45);
 z-index:-1;
 }
@@ -905,21 +590,6 @@ z-index:-1;
 max-width:1000px;
 width:100%;
 text-align:center;
-}
-
-.location-content h2{
-font-size:54px;
-font-family:'Cormorant Garamond',serif;
-color:#E8D7B0;
-letter-spacing:4px;
-margin-bottom:15px;
-}
-
-.location-content p{
-font-size:20px;
-line-height:1.8;
-color:#F8F5ED;
-margin-bottom:35px;
 }
 
 .location-image{
@@ -932,43 +602,16 @@ border:3px solid #D4AF37;
 box-shadow:0 20px 45px rgba(0,0,0,.45);
 display:block;
 margin:35px auto;
-transition:.4s;
 }
 
-.location-image:hover{
-transform:scale(1.02);
-}
-
-#exploreLocation{
-margin-top:20px;
-}
 
 /* =========================
-   BOOKING SECTION
+BOOKING
 ========================= */
 
 .booking-section{
 padding:100px 20px;
-background:transparent;
 }
-
-.booking-section h2{
-font-size:52px;
-font-family:'Cormorant Garamond',serif;
-color:#E8D7B0;
-letter-spacing:4px;
-margin-bottom:15px;
-}
-
-.booking-section p{
-max-width:700px;
-margin:auto;
-font-size:18px;
-line-height:1.8;
-color:#ddd;
-}
-
-/* FORM */
 
 .booking-form{
 max-width:720px;
@@ -986,7 +629,6 @@ box-shadow:0 15px 35px rgba(0,0,0,.35);
 .booking-form input,
 .booking-form select,
 .booking-form textarea{
-
 width:100%;
 padding:15px 18px;
 background:#6A1B2E;
@@ -995,17 +637,6 @@ border-radius:10px;
 color:#fff;
 font-size:16px;
 outline:none;
-transition:.3s;
-
-}
-
-.booking-form input:focus,
-.booking-form select:focus,
-.booking-form textarea:focus{
-
-border-color:#FFD76A;
-box-shadow:0 0 10px rgba(212,178,111,.35);
-
 }
 
 .booking-form textarea{
@@ -1016,840 +647,232 @@ min-height:120px;
 .booking-form button{
 margin-top:10px;
 width:100%;
-font-size:17px;
-padding:15px;
 }
 
-/* MOBILE */
+
+/* =========================
+CONTACT
+========================= */
+
+#contact{
+padding:100px 20px;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:50px;
+}
+
+.contact-box{
+background:#5A1626;
+padding:30px;
+border-radius:16px;
+border:1px solid rgba(212,178,111,.35);
+box-shadow:0 10px 25px rgba(0,0,0,.30);
+}
+
+.contact-box h3{
+font-family:'Cormorant Garamond',serif;
+font-size:28px;
+color:#E8D7B0;
+margin-bottom:15px;
+}
+
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+background:#24070F;
+padding:70px 20px;
+text-align:center;
+border-top:1px solid rgba(212,178,111,.25);
+}
+
+footer h2{
+font-size:42px;
+font-family:'Cormorant Garamond',serif;
+color:#E8D7B0;
+margin-bottom:20px;
+}
+
+
+/* =========================
+LOADER
+========================= */
+
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#3B0A16;
+z-index:999999;
+transition:.4s;
+}
+
+.loader-circle{
+width:70px;
+height:70px;
+border:5px solid rgba(255,255,255,.15);
+border-top:5px solid #D4AF37;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+100%{
+transform:rotate(360deg);
+}
+}
+
+
+/* =========================
+TOP BUTTON
+========================= */
+
+#topBtn{
+position:fixed;
+bottom:20px;
+left:20px;
+width:55px;
+height:55px;
+border:none;
+border-radius:50%;
+background:#D4AF37;
+color:#3B0A16;
+font-size:24px;
+cursor:pointer;
+display:none;
+z-index:99999;
+}
+
+
+/* =========================
+MOBILE
+========================= */
 
 @media(max-width:768px){
 
-.location-section{
-padding:80px 20px;
+.logo{
+font-size:24px;
 }
 
-.location-content h2{
+.hero h1{
 font-size:38px;
 }
 
-.location-content p{
+.hero p{
+font-size:18px;
+}
+
+section h2{
+font-size:36px;
+}
+
+section p{
 font-size:17px;
+}
+
+.food-gallery{
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.order-card img{
+height:145px;
+}
+
+.order-card h3{
+font-size:18px;
+min-height:55px;
+}
+
+.food-price{
+font-size:20px;
+}
+
+.cart-controls{
+gap:3px;
+width:calc(100% - 10px);
+margin-left:5px;
+margin-right:5px;
+}
+
+.qty-btn{
+width:29px;
+height:36px;
+font-size:20px;
+}
+
+.qty-number{
+min-width:18px;
+font-size:14px;
+}
+
+.cart-controls .add-cart{
+padding:9px 3px;
+font-size:10px;
+letter-spacing:0;
+}
+
+.cart-box{
+padding:20px;
+margin:40px 15px;
+}
+
+.cart-item{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.cart-quantity{
+width:100%;
+justify-content:center;
+}
+
+.remove-btn{
+width:100%;
+}
+
+#cartTotal{
+text-align:left;
+font-size:24px;
 }
 
 .location-image{
 height:250px;
 }
 
-.booking-section h2{
-font-size:38px;
-}
-
 .booking-form{
 padding:20px;
 }
 
-.booking-form input,
-.booking-form select,
-.booking-form textarea{
-font-size:15px;
-padding:13px;
-}
-
-}
-/* ===========================================
-   STYLE.CSS
-   PART 3B
-   CONTACT + FOOTER + LOADER
-=========================================== */
-
-/* =========================
-   CONTACT SECTION
-========================= */
-
-#contact{
-padding:100px 20px;
-background:transparent;
-}
-
-#contact h2{
-font-size:52px;
-font-family:'Cormorant Garamond',serif;
-color:#E8D7B0;
-letter-spacing:4px;
-margin-bottom:15px;
-}
-
 .contact-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:25px;
-
-margin-top:50px;
-
-}
-
-.contact-box{
-
-background:#5A1626;
-
-padding:30px;
-
-border-radius:16px;
-
-border:1px solid rgba(212,178,111,.35);
-
-transition:.35s;
-
-box-shadow:0 10px 25px rgba(0,0,0,.30);
-
-}
-
-.contact-box:hover{
-
-transform:translateY(-8px);
-
-box-shadow:0 18px 40px rgba(0,0,0,.40);
-
-}
-
-.contact-box h3{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:28px;
-
-color:#E8D7B0;
-
-margin-bottom:15px;
-
-}
-
-.contact-box p{
-
-font-size:17px;
-
-line-height:1.8;
-
-color:#F8F5ED;
-
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-
-background:#24070F;
-
-padding:70px 20px;
-
-text-align:center;
-
-border-top:1px solid rgba(212,178,111,.25);
-
-}
-
-footer h2{
-
-font-size:42px;
-
-font-family:'Cormorant Garamond',serif;
-
-color:#E8D7B0;
-
-margin-bottom:20px;
-
-letter-spacing:3px;
-
-}
-
-footer p{
-
-font-size:15px;
-
-line-height:1.8;
-
-color:#ddd;
-
-}
-
-/* =========================
-   LOADER
-========================= */
-
-#loader{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-background:#3B0A16;
-
-z-index:999999;
-
-transition:.4s;
-
-}
-
-.loader-circle{
-
-width:70px;
-
-height:70px;
-
-border:5px solid rgba(255,255,255,.15);
-
-border-top:5px solid #D4AF37;
-
-border-radius:50%;
-
-animation:spin 1s linear infinite;
-
-}
-
-@keyframes spin{
-
-100%{
-
-transform:rotate(360deg);
-
-}
-
-}
-
-/* =========================
-   SCROLL TOP BUTTON
-========================= */
-
-#topBtn{
-
-position:fixed;
-
-bottom:20px;
-
-left:20px;
-
-width:55px;
-
-height:55px;
-
-border:none;
-
-border-radius:50%;
-
-background:#D4AF37;
-
-color:#3B0A16;
-
-font-size:24px;
-
-cursor:pointer;
-
-display:none;
-
-z-index:99999;
-
-transition:.3s;
-
-box-shadow:0 10px 25px rgba(0,0,0,.35);
-
-}
-
-#topBtn:hover{
-
-transform:translateY(-5px);
-
-}
-
-/* =========================
-   SUCCESS TOAST
-========================= */
-
-.success-toast{
-
-position:fixed;
-
-top:20px;
-
-right:20px;
-
-background:#1B5E20;
-
-color:#fff;
-
-padding:15px 22px;
-
-border-radius:8px;
-
-border:1px solid #D4AF37;
-
-box-shadow:0 10px 25px rgba(0,0,0,.35);
-
-z-index:999999;
-
-animation:toast .35s ease;
-
-}
-
-@keyframes toast{
-
-from{
-
-opacity:0;
-
-transform:translateX(100px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateX(0);
-
-}
-
-}
-
-/* =========================
-   SCROLLBAR
-========================= */
-
-::-webkit-scrollbar{
-
-width:10px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:#3B0A16;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:#D4AF37;
-
-border-radius:30px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-background:#FFD76A;
-
-}
-
-/* =========================
-   TEXT SELECTION
-========================= */
-
-::selection{
-
-background:#D4AF37;
-
-color:#3B0A16;
-
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:768px){
-
-#contact{
-
-padding:80px 20px;
-
-}
-
-#contact h2{
-
-font-size:38px;
-
-}
-
-.contact-grid{
-
 grid-template-columns:1fr;
-
-gap:20px;
-
-}
-
-.contact-box{
-
-padding:20px;
-
-}
-
-.contact-box h3{
-
-font-size:24px;
-
-}
-
-.contact-box p{
-
-font-size:16px;
-
 }
 
 footer{
-
 padding:50px 20px;
-
-}
-
-footer h2{
-
-font-size:30px;
-
-}
-
-#topBtn{
-
-width:48px;
-
-height:48px;
-
-font-size:20px;
-
-}
-
-.success-toast{
-
-left:10px;
-
-right:10px;
-
-top:10px;
-
-text-align:center;
-
 }
 
 }
-/* ===========================================
-   STYLE.CSS
-   PART 4
-   FINAL PREMIUM EFFECTS
-=========================================== */
 
-/* =========================
-   GLOBAL ANIMATION
-========================= */
+@media(max-width:360px){
 
-.fade-up{
-opacity:0;
-transform:translateY(40px);
-transition:all .8s ease;
+.food-gallery{
+grid-template-columns:1fr;
 }
 
-.fade-up.show{
-opacity:1;
-transform:translateY(0);
-}
-
-/* =========================
-   PREMIUM SHADOW
-========================= */
-
-.order-card,
-.contact-box,
-.booking-form,
-.cart-box,
-.popup-box{
-
-box-shadow:0 12px 35px rgba(0,0,0,.35);
-
-}
-
-/* =========================
-   IMAGE EFFECT
-========================= */
-
-.order-card img{
-
-transition:.5s;
-
-}
-
-.order-card:hover img{
-
-transform:scale(1.08);
-
-}
-
-/* =========================
-   BUTTON EFFECT
-========================= */
-
-.gold-btn{
-
-transition:.35s;
-
-}
-
-.gold-btn:hover{
-
-transform:translateY(-3px);
-
-box-shadow:0 8px 20px rgba(212,175,55,.35);
-
-}
-
-/* =========================
-   CART BADGE
-========================= */
-
-.cart-badge{
-
-position:absolute;
-
-top:-8px;
-
-right:-8px;
-
-width:24px;
-
-height:24px;
-
-border-radius:50%;
-
-background:#D4AF37;
-
-color:#3B0A16;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
+.cart-controls .add-cart{
 font-size:12px;
-
-font-weight:bold;
-
-}
-
-/* =========================
-   ORDER STATUS
-========================= */
-
-.status{
-
-display:inline-block;
-
-padding:8px 16px;
-
-border-radius:30px;
-
-font-size:14px;
-
-font-weight:600;
-
-margin-top:10px;
-
-}
-
-.pending{
-
-background:#FF9800;
-
-color:#fff;
-
-}
-
-.preparing{
-
-background:#1976D2;
-
-color:#fff;
-
-}
-
-.ready{
-
-background:#2E7D32;
-
-color:#fff;
-
-}
-
-/* =========================
-   CHEF ORDER CARD
-========================= */
-
-.chef-order{
-
-background:#5A1626;
-
-border:1px solid #D4AF37;
-
-border-radius:15px;
-
-padding:20px;
-
-margin-bottom:20px;
-
-}
-
-.chef-order h3{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:28px;
-
-color:#E8D7B0;
-
-margin-bottom:12px;
-
-}
-
-.chef-order p{
-
-font-size:16px;
-
-line-height:1.7;
-
-margin:6px 0;
-
-}
-
-/* =========================
-   PREPARE BUTTON
-========================= */
-
-.prepare-btn{
-
-width:100%;
-
-padding:14px;
-
-margin-top:12px;
-
-background:#1565C0;
-
-color:#fff;
-
-border:none;
-
-border-radius:8px;
-
-cursor:pointer;
-
-font-size:16px;
-
-transition:.3s;
-
-}
-
-.prepare-btn:hover{
-
-background:#0D47A1;
-
-}
-
-/* =========================
-   READY BUTTON
-========================= */
-
-.ready-btn{
-
-width:100%;
-
-padding:14px;
-
-margin-top:12px;
-
-background:#2E7D32;
-
-color:#fff;
-
-border:none;
-
-border-radius:8px;
-
-cursor:pointer;
-
-font-size:16px;
-
-transition:.3s;
-
-}
-
-.ready-btn:hover{
-
-background:#1B5E20;
-
-}
-
-/* =========================
-   REMOVE BUTTON
-========================= */
-
-.remove-btn{
-
-transition:.3s;
-
-}
-
-.remove-btn:hover{
-
-background:#8E0000;
-
-transform:scale(1.05);
-
-}
-
-/* =========================
-   SUCCESS MESSAGE
-========================= */
-
-.success-toast{
-
-position:fixed;
-
-top:20px;
-
-right:20px;
-
-background:#1B5E20;
-
-color:#fff;
-
-padding:15px 22px;
-
-border-radius:8px;
-
-border:1px solid #D4AF37;
-
-box-shadow:0 10px 25px rgba(0,0,0,.35);
-
-z-index:999999;
-
-animation:toast .35s ease;
-
-}
-
-@keyframes toast{
-
-from{
-
-opacity:0;
-
-transform:translateX(80px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateX(0);
-
-}
-
-}
-
-/* =========================
-   SCROLLBAR
-========================= */
-
-::-webkit-scrollbar{
-
-width:10px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:#3B0A16;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:#D4AF37;
-
-border-radius:20px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-background:#FFD76A;
-
-}
-
-/* =========================
-   TEXT SELECTION
-========================= */
-
-::selection{
-
-background:#D4AF37;
-
-color:#3B0A16;
-
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:768px){
-
-.status{
-
-font-size:13px;
-
-padding:7px 14px;
-
-}
-
-.chef-order{
-
-padding:15px;
-
-}
-
-.prepare-btn,
-.ready-btn{
-
-font-size:15px;
-
-padding:12px;
-
-}
-
-.success-toast{
-
-left:10px;
-
-right:10px;
-
-top:10px;
-
-text-align:center;
-
 }
 
 }
