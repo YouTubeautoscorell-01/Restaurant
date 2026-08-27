@@ -1,5 +1,6 @@
 /* ==========================================
    CUSTOMER APP - COMPLETE SCRIPT.JS
+   QUANTITY + CART + FIREBASE
 ========================================== */
 
 
@@ -8,18 +9,37 @@
 ========================= */
 
 const menuBtn =
-  document.getElementById("menuBtn");
+    document.getElementById("menuBtn");
 
 const mobileMenu =
-  document.getElementById("mobileMenu");
+    document.getElementById("mobileMenu");
 
-if (menuBtn && mobileMenu) {
+if(menuBtn && mobileMenu){
 
-  menuBtn.addEventListener("click", () => {
+    menuBtn.addEventListener("click",()=>{
 
-    mobileMenu.classList.toggle("active");
+        mobileMenu.classList.toggle("active");
 
-  });
+    });
+
+}
+
+
+/* =========================
+   CLOSE MOBILE MENU
+========================= */
+
+if(mobileMenu){
+
+    mobileMenu.querySelectorAll("a").forEach(link=>{
+
+        link.addEventListener("click",()=>{
+
+            mobileMenu.classList.remove("active");
+
+        });
+
+    });
 
 }
 
@@ -29,44 +49,47 @@ if (menuBtn && mobileMenu) {
 ========================= */
 
 const storyBtn =
-  document.getElementById("storyBtn");
+    document.getElementById("storyBtn");
 
 const storyPopup =
-  document.getElementById("storyPopup");
+    document.getElementById("storyPopup");
 
 const closeStory =
-  document.getElementById("closeStory");
+    document.getElementById("closeStory");
 
-if (storyBtn && storyPopup) {
 
-  storyBtn.addEventListener("click", () => {
+if(storyBtn && storyPopup){
 
-    storyPopup.classList.add("active");
+    storyBtn.addEventListener("click",()=>{
 
-  });
+        storyPopup.classList.add("active");
 
-}
-
-if (closeStory && storyPopup) {
-
-  closeStory.addEventListener("click", () => {
-
-    storyPopup.classList.remove("active");
-
-  });
+    });
 
 }
 
-window.addEventListener("click", (e) => {
 
-  if (
-    storyPopup &&
-    e.target === storyPopup
-  ) {
+if(closeStory && storyPopup){
 
-    storyPopup.classList.remove("active");
+    closeStory.addEventListener("click",()=>{
 
-  }
+        storyPopup.classList.remove("active");
+
+    });
+
+}
+
+
+window.addEventListener("click",(e)=>{
+
+    if(
+        storyPopup &&
+        e.target === storyPopup
+    ){
+
+        storyPopup.classList.remove("active");
+
+    }
 
 });
 
@@ -79,99 +102,322 @@ let cart = [];
 
 
 /* =========================
-   ADD TO CART
+   SAVE CART LOCAL STORAGE
 ========================= */
 
-const addButtons =
-  document.querySelectorAll(".add-cart");
+function saveCart(){
 
-addButtons.forEach((button) => {
+    try{
 
-  button.addEventListener("click", () => {
+        localStorage.setItem(
+            "customerCart",
+            JSON.stringify(cart)
+        );
 
-    const card =
-      button.closest(".order-card");
+    }catch(error){
 
-    if (!card) return;
-
-
-    const nameElement =
-      card.querySelector("h3");
-
-    const priceElement =
-      card.querySelector(".food-price");
-
-    if (!nameElement || !priceElement) {
-      return;
-    }
-
-
-    const name =
-      nameElement.innerText.trim();
-
-    const price =
-      parseInt(
-        priceElement.innerText
-          .replace(/[^\d]/g, ""),
-        10
-      );
-
-
-    if (!name || isNaN(price)) {
-
-      alert("Unable to add this item.");
-
-      return;
+        console.log(
+            "Cart save error:",
+            error
+        );
 
     }
 
-
-    /*
-     * If same item already exists,
-     * increase quantity instead of
-     * creating duplicate cart item.
-     */
-
-    const existingItem =
-      cart.find(
-        item => item.name === name
-      );
+}
 
 
-    if (existingItem) {
+/* =========================
+   LOAD CART
+========================= */
 
-      existingItem.qty += 1;
+function loadCart(){
 
-    } else {
+    try{
 
-      cart.push({
+        const saved =
+            localStorage.getItem(
+                "customerCart"
+            );
 
-        name: name,
+        if(saved){
 
-        price: price,
+            const parsed =
+                JSON.parse(saved);
 
-        qty: 1
+            if(Array.isArray(parsed)){
 
-      });
+                cart =
+                    parsed.map(item=>({
+
+                        name:String(item.name),
+
+                        price:Number(item.price),
+
+                        qty:Math.max(
+                            1,
+                            Number(item.qty) || 1
+                        )
+
+                    }));
+
+            }
+
+        }
+
+    }catch(error){
+
+        console.log(
+            "Cart load error:",
+            error
+        );
+
+        cart=[];
+
+    }
+
+}
+
+
+/* =========================
+   UPDATE PRODUCT QUANTITY UI
+========================= */
+
+function updateProductQuantity(card,qty){
+
+    if(!card) return;
+
+    const number =
+        card.querySelector(
+            ".qty-number"
+        );
+
+    if(number){
+
+        number.innerText = qty;
+
+    }
+
+}
+
+
+/* =========================
+   PRODUCT QUANTITY CONTROLS
+========================= */
+
+const foodCards =
+    document.querySelectorAll(
+        ".order-card"
+    );
+
+
+foodCards.forEach(card=>{
+
+    const minus =
+        card.querySelector(
+            ".qty-minus"
+        );
+
+    const plus =
+        card.querySelector(
+            ".qty-plus"
+        );
+
+    const number =
+        card.querySelector(
+            ".qty-number"
+        );
+
+
+    let quantity = 1;
+
+
+    if(number){
+
+        number.innerText =
+            quantity;
 
     }
 
 
-    updateCart();
+    /* PLUS */
+
+    if(plus){
+
+        plus.addEventListener(
+            "click",
+            ()=>{
+
+                quantity++;
+
+                updateProductQuantity(
+                    card,
+                    quantity
+                );
+
+            }
+        );
+
+    }
 
 
-    button.innerHTML =
-      "Added ✓";
+    /* MINUS */
+
+    if(minus){
+
+        minus.addEventListener(
+            "click",
+            ()=>{
+
+                if(quantity > 1){
+
+                    quantity--;
+
+                }else{
+
+                    quantity = 1;
+
+                }
+
+                updateProductQuantity(
+                    card,
+                    quantity
+                );
+
+            }
+        );
+
+    }
 
 
-    setTimeout(() => {
+    /* ADD TO CART */
 
-      button.innerHTML =
-        "Add To Cart";
+    const addButton =
+        card.querySelector(
+            ".add-cart"
+        );
 
-    }, 1000);
 
-  });
+    if(addButton){
+
+        addButton.addEventListener(
+            "click",
+            ()=>{
+
+                const nameElement =
+                    card.querySelector("h3");
+
+                const priceElement =
+                    card.querySelector(
+                        ".food-price"
+                    );
+
+
+                if(
+                    !nameElement ||
+                    !priceElement
+                ){
+
+                    return;
+
+                }
+
+
+                const name =
+                    nameElement.innerText.trim();
+
+
+                const price =
+                    parseInt(
+                        priceElement.innerText
+                            .replace(/[^\d]/g,""),
+                        10
+                    );
+
+
+                if(
+                    !name ||
+                    isNaN(price)
+                ){
+
+                    alert(
+                        "Unable to add this item."
+                    );
+
+                    return;
+
+                }
+
+
+                /* FIND EXISTING ITEM */
+
+                const existingItem =
+                    cart.find(
+                        item =>
+                            item.name === name
+                    );
+
+
+                /* ADD SELECTED QUANTITY */
+
+                if(existingItem){
+
+                    existingItem.qty +=
+                        quantity;
+
+                }else{
+
+                    cart.push({
+
+                        name:name,
+
+                        price:price,
+
+                        qty:quantity
+
+                    });
+
+                }
+
+
+                saveCart();
+
+                updateCart();
+
+
+                /* SUCCESS */
+
+                const oldText =
+                    addButton.innerText;
+
+
+                addButton.innerText =
+                    "Added ✓";
+
+
+                setTimeout(()=>{
+
+                    addButton.innerText =
+                        oldText;
+
+                },1000);
+
+
+                /*
+                 * Product selector reset
+                 * after adding.
+                 */
+
+                quantity = 1;
+
+                updateProductQuantity(
+                    card,
+                    quantity
+                );
+
+            }
+        );
+
+    }
 
 });
 
@@ -180,101 +426,195 @@ addButtons.forEach((button) => {
    UPDATE CART
 ========================= */
 
-function updateCart() {
+function updateCart(){
 
-  const cartItems =
-    document.getElementById("cartItems");
+    const cartItems =
+        document.getElementById(
+            "cartItems"
+        );
 
-  const cartTotal =
-    document.getElementById("cartTotal");
-
-
-  if (!cartItems || !cartTotal) {
-    return;
-  }
-
-
-  cartItems.innerHTML = "";
+    const cartTotal =
+        document.getElementById(
+            "cartTotal"
+        );
 
 
-  let total = 0;
+    if(
+        !cartItems ||
+        !cartTotal
+    ){
+
+        return;
+
+    }
 
 
-  cart.forEach((item, index) => {
-
-    total +=
-      Number(item.price) *
-      Number(item.qty);
+    cartItems.innerHTML = "";
 
 
-    cartItems.innerHTML += `
+    let total = 0;
 
-      <div class="cart-item">
 
-        <div>
+    cart.forEach((item,index)=>{
 
-          <h4>
-            ${item.name}
-          </h4>
+        const itemPrice =
+            Number(item.price) || 0;
 
-          <p>
+        const itemQty =
+            Math.max(
+                1,
+                Number(item.qty) || 1
+            );
 
-            ₹${item.price}
-            × ${item.qty}
 
-          </p>
+        total +=
+            itemPrice * itemQty;
+
+
+        cartItems.innerHTML += `
+
+        <div class="cart-item">
+
+            <div>
+
+                <h4>
+                    ${escapeHTML(item.name)}
+                </h4>
+
+                <p>
+                    ₹${itemPrice}
+                </p>
+
+            </div>
+
+
+            <div class="cart-quantity">
+
+                <button
+                    class="cart-qty-btn"
+                    onclick="changeCartQuantity(${index},-1)">
+
+                    −
+
+                </button>
+
+
+                <span class="cart-qty-number">
+
+                    ${itemQty}
+
+                </span>
+
+
+                <button
+                    class="cart-qty-btn"
+                    onclick="changeCartQuantity(${index},1)">
+
+                    +
+
+                </button>
+
+            </div>
+
+
+            <button
+                class="remove-btn"
+                onclick="removeItem(${index})">
+
+                Remove
+
+            </button>
 
         </div>
 
+        `;
 
-        <button
-          class="remove-btn"
-          onclick="removeItem(${index})">
-
-          Remove
-
-        </button>
-
-      </div>
-
-    `;
-
-  });
+    });
 
 
-  cartTotal.innerHTML =
-    "Total : ₹" + total;
+    cartTotal.innerText =
+        "Total : ₹" + total;
 
 }
+
+
+/* =========================
+   CHANGE CART QUANTITY
+========================= */
+
+function changeCartQuantity(index,change){
+
+    if(
+        index < 0 ||
+        index >= cart.length
+    ){
+
+        return;
+
+    }
+
+
+    cart[index].qty =
+        Math.max(
+            1,
+            Number(cart[index].qty) + change
+        );
+
+
+    saveCart();
+
+    updateCart();
+
+}
+
+
+window.changeCartQuantity =
+    changeCartQuantity;
 
 
 /* =========================
    REMOVE ITEM
 ========================= */
 
-function removeItem(index) {
+function removeItem(index){
 
-  if (
-    index < 0 ||
-    index >= cart.length
-  ) {
+    if(
+        index < 0 ||
+        index >= cart.length
+    ){
 
-    return;
+        return;
 
-  }
+    }
 
 
-  cart.splice(index, 1);
+    cart.splice(index,1);
 
-  updateCart();
+    saveCart();
+
+    updateCart();
 
 }
 
 
-/* Make available to HTML */
-
 window.removeItem =
-  removeItem;
+    removeItem;
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHTML(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
 
 
 /* =========================
@@ -282,61 +622,68 @@ window.removeItem =
 ========================= */
 
 const bookingForm =
-  document.getElementById("bookingForm");
-
-if (bookingForm) {
-
-  bookingForm.addEventListener(
-    "submit",
-    (e) => {
-
-      e.preventDefault();
+    document.getElementById(
+        "bookingForm"
+    );
 
 
-      const nameElement =
-        document.getElementById("name");
+if(bookingForm){
 
-      const mobileElement =
-        document.getElementById("mobile");
+    bookingForm.addEventListener(
+        "submit",
+        (e)=>{
 
-
-      const name =
-        nameElement
-          ? nameElement.value.trim()
-          : "";
+            e.preventDefault();
 
 
-      const mobile =
-        mobileElement
-          ? mobileElement.value.trim()
-          : "";
+            const nameElement =
+                document.getElementById(
+                    "name"
+                );
+
+            const mobileElement =
+                document.getElementById(
+                    "mobile"
+                );
 
 
-      if (mobile.length !== 10) {
-
-        alert(
-          "Please Enter Valid Mobile Number"
-        );
-
-        return;
-
-      }
+            const name =
+                nameElement
+                    ? nameElement.value.trim()
+                    : "";
 
 
-      alert(
+            const mobile =
+                mobileElement
+                    ? mobileElement.value.trim()
+                    : "";
 
-        `Thank You ${name}
+
+            if(!/^\d{10}$/.test(mobile)){
+
+                alert(
+                    "Please Enter Valid 10 Digit Mobile Number"
+                );
+
+                return;
+
+            }
+
+
+            alert(
+
+`Thank You ${name}
 
 Your Table Booking Request
 Has Been Submitted Successfully.`
 
-      );
+            );
 
 
-      bookingForm.reset();
+            bookingForm.reset();
 
-    }
-  );
+        }
+    );
 
 }
 
@@ -346,79 +693,83 @@ Has Been Submitted Successfully.`
 ========================= */
 
 const exploreBtn =
-  document.getElementById(
-    "exploreLocation"
-  );
+    document.getElementById(
+        "exploreLocation"
+    );
 
-if (exploreBtn) {
 
-  exploreBtn.addEventListener(
-    "click",
-    () => {
+if(exploreBtn){
 
-      /*
-       * Change the Google Maps search
-       * to your restaurant location
-       * if required.
-       */
+    exploreBtn.addEventListener(
+        "click",
+        ()=>{
 
-      window.open(
-        "https://maps.google.com/",
-        "_blank"
-      );
+            window.open(
+                "https://maps.google.com/",
+                "_blank"
+            );
 
-    }
-  );
+        }
+    );
 
 }
 
 
 /* =========================
-   SCROLL TO TOP
+   SCROLL TOP
 ========================= */
 
 const topBtn =
-  document.createElement("button");
+    document.createElement(
+        "button"
+    );
+
 
 topBtn.id =
-  "topBtn";
+    "topBtn";
 
 topBtn.innerHTML =
-  "↑";
-
-document.body.appendChild(topBtn);
+    "↑";
 
 
-window.addEventListener("scroll", () => {
+document.body.appendChild(
+    topBtn
+);
 
-  if (window.scrollY > 400) {
 
-    topBtn.style.display =
-      "block";
+window.addEventListener(
+    "scroll",
+    ()=>{
 
-  } else {
+        if(window.scrollY > 400){
 
-    topBtn.style.display =
-      "none";
+            topBtn.style.display =
+                "block";
 
-  }
+        }else{
 
-});
+            topBtn.style.display =
+                "none";
+
+        }
+
+    }
+);
 
 
 topBtn.addEventListener(
-  "click",
-  () => {
+    "click",
+    ()=>{
 
-    window.scrollTo({
+        window.scrollTo({
 
-      top: 0,
+            top:0,
 
-      behavior: "smooth"
+            behavior:"smooth"
 
-    });
+        });
 
-  }
+    }
 );
 
 
@@ -426,369 +777,361 @@ topBtn.addEventListener(
    LOADER
 ========================= */
 
-window.addEventListener("load", () => {
+window.addEventListener(
+    "load",
+    ()=>{
 
-  const loader =
-    document.getElementById("loader");
-
-
-  if (loader) {
-
-    loader.style.opacity =
-      "0";
+        const loader =
+            document.getElementById(
+                "loader"
+            );
 
 
-    setTimeout(() => {
+        if(loader){
 
-      loader.remove();
+            loader.style.opacity =
+                "0";
 
-    }, 500);
 
-  }
+            setTimeout(
+                ()=>{
 
-});
+                    loader.remove();
+
+                },
+                500
+            );
+
+        }
+
+    }
+);
 
 
 /* ==========================================
    SAVE ORDER TO FIREBASE
 ========================================== */
 
-async function saveOrderToFirebase() {
+async function saveOrderToFirebase(){
 
-  try {
-
-    /* =========================
-       FIREBASE CHECK
-    ========================= */
-
-    if (
-      !window.db ||
-      !window.fb
-    ) {
-
-      alert(
-        "Firebase is not ready. Please wait a moment and try again."
-      );
-
-      return false;
-
-    }
+    try{
 
 
-    /* =========================
-       CUSTOMER PHONE
-    ========================= */
+        /* =========================
+           FIREBASE CHECK
+        ========================= */
 
-    const phone =
-      localStorage.getItem(
-        "customerPhone"
-      );
+        if(
+            !window.db ||
+            !window.fb
+        ){
 
-
-    if (!phone) {
-
-      alert(
-        "Please login first."
-      );
-
-      return false;
-
-    }
-
-
-    /* =========================
-       CART CHECK
-    ========================= */
-
-    if (
-      !Array.isArray(cart) ||
-      cart.length === 0
-    ) {
-
-      alert("Cart Empty");
-
-      return false;
-
-    }
-
-
-    /* =========================
-       CLEAN CART ITEMS
-    ========================= */
-
-    const newItems =
-      cart.map((item) => ({
-
-        name:
-          String(item.name),
-
-        price:
-          Number(item.price),
-
-        qty:
-          Number(item.qty)
-
-      }));
-
-
-    /* =========================
-       ORDER TOTAL
-    ========================= */
-
-    const newTotal =
-      newItems.reduce(
-        (total, item) => {
-
-          return total +
-            (
-              item.price *
-              item.qty
+            alert(
+                "Firebase is not ready. Please wait a moment and try again."
             );
 
-        },
-        0
-      );
-
-
-    /* =================================
-       1. SEND SEPARATE ORDER TO CHEF
-       =================================
-
-       Every checkout creates a NEW
-       document in "orders".
-
-       Therefore:
-
-       Order 1 = Box 1
-       Order 2 = Box 2
-       Order 3 = Box 3
-
-       Even if customer uses the
-       same mobile number.
-    */
-
-    await fb.addDoc(
-
-      fb.collection(
-        db,
-        "orders"
-      ),
-
-      {
-
-        customerPhone:
-          phone,
-
-        items:
-          newItems,
-
-        total:
-          newTotal,
-
-        createdAt:
-          fb.serverTimestamp()
-
-      }
-
-    );
-
-
-    /* =================================
-       2. UPDATE BILLING APP
-       =================================
-
-       Billing uses the customer phone
-       as the document ID.
-
-       Same customer =
-       same billing document.
-
-       Chef remains separate.
-    */
-
-    const billRef =
-      fb.doc(
-        db,
-        "activeOrders",
-        phone
-      );
-
-
-    const oldBill =
-      await fb.getDoc(
-        billRef
-      );
-
-
-    let finalItems = [];
-
-
-    /* =========================
-       EXISTING BILL
-    ========================= */
-
-    if (oldBill.exists()) {
-
-      const oldData =
-        oldBill.data();
-
-
-      if (
-        Array.isArray(
-          oldData.items
-        )
-      ) {
-
-        finalItems =
-          oldData.items.map(
-            (item) => ({
-
-              name:
-                String(item.name),
-
-              price:
-                Number(item.price),
-
-              qty:
-                Number(item.qty)
-
-            })
-          );
-
-      }
-
-    }
-
-
-    /* =========================
-       MERGE NEW ITEMS
-    ========================= */
-
-    newItems.forEach(
-      (newItem) => {
-
-        const existingIndex =
-          finalItems.findIndex(
-            (item) =>
-              item.name ===
-              newItem.name
-          );
-
-
-        if (
-          existingIndex !== -1
-        ) {
-
-          finalItems[
-            existingIndex
-          ].qty +=
-            newItem.qty;
-
-        } else {
-
-          finalItems.push({
-
-            name:
-              newItem.name,
-
-            price:
-              newItem.price,
-
-            qty:
-              newItem.qty
-
-          });
+            return false;
 
         }
 
-      }
-    );
 
+        /* =========================
+           PHONE
+        ========================= */
 
-    /* =========================
-       FINAL BILL TOTAL
-    ========================= */
-
-    const finalTotal =
-      finalItems.reduce(
-        (total, item) => {
-
-          return total +
-            (
-              Number(item.price) *
-              Number(item.qty)
+        const phone =
+            localStorage.getItem(
+                "customerPhone"
             );
 
-        },
-        0
-      );
+
+        if(!phone){
+
+            alert(
+                "Please login first."
+            );
+
+            return false;
+
+        }
 
 
-    /* =========================
-       SAVE BILL
-    ========================= */
+        /* =========================
+           CART CHECK
+        ========================= */
 
-    await fb.setDoc(
+        if(
+            !Array.isArray(cart) ||
+            cart.length === 0
+        ){
 
-      billRef,
+            alert(
+                "Cart Empty"
+            );
 
-      {
+            return false;
 
-        customerPhone:
-          phone,
-
-        items:
-          finalItems,
-
-        total:
-          finalTotal,
-
-        updatedAt:
-          fb.serverTimestamp()
-
-      },
-
-      {
-        merge: true
-      }
-
-    );
+        }
 
 
-    /* =========================
-       SUCCESS
-    ========================= */
+        /* =========================
+           CLEAN CART
+        ========================= */
 
-    cart = [];
+        const newItems =
+            cart.map(item=>({
 
-    updateCart();
+                name:String(item.name),
 
+                price:Number(item.price),
 
-    alert(
-      "Order Placed Successfully"
-    );
+                qty:Math.max(
+                    1,
+                    Number(item.qty) || 1
+                )
 
-
-    return true;
-
-
-  } catch (error) {
-
-    console.error(
-      "Firebase Order Error:",
-      error
-    );
+            }));
 
 
-    alert(
-      "Firebase Error:\n" +
-      error.message
-    );
+        /* =========================
+           TOTAL
+        ========================= */
+
+        const newTotal =
+            newItems.reduce(
+                (total,item)=>{
+
+                    return total +
+                        (
+                            item.price *
+                            item.qty
+                        );
+
+                },
+                0
+            );
 
 
-    return false;
+        /* =================================
+           CREATE SEPARATE CHEF ORDER
+        ================================= */
 
-  }
+        await fb.addDoc(
+
+            fb.collection(
+                db,
+                "orders"
+            ),
+
+            {
+
+                customerPhone:phone,
+
+                items:newItems,
+
+                total:newTotal,
+
+                status:"Received",
+
+                createdAt:
+                    fb.serverTimestamp(),
+
+                updatedAt:
+                    fb.serverTimestamp()
+
+            }
+
+        );
+
+
+        /* =================================
+           BILLING ACTIVE ORDER
+        ================================= */
+
+        const billRef =
+            fb.doc(
+                db,
+                "activeOrders",
+                phone
+            );
+
+
+        const oldBill =
+            await fb.getDoc(
+                billRef
+            );
+
+
+        let finalItems = [];
+
+
+        /* =========================
+           EXISTING BILL
+        ========================= */
+
+        if(oldBill.exists()){
+
+            const oldData =
+                oldBill.data();
+
+
+            if(
+                Array.isArray(
+                    oldData.items
+                )
+            ){
+
+                finalItems =
+                    oldData.items.map(
+                        item=>({
+
+                            name:
+                                String(item.name),
+
+                            price:
+                                Number(item.price),
+
+                            qty:
+                                Math.max(
+                                    1,
+                                    Number(item.qty) || 1
+                                )
+
+                        })
+                    );
+
+            }
+
+        }
+
+
+        /* =========================
+           MERGE ITEMS
+        ========================= */
+
+        newItems.forEach(newItem=>{
+
+            const existingIndex =
+                finalItems.findIndex(
+                    item =>
+                        item.name ===
+                        newItem.name
+                );
+
+
+            if(existingIndex !== -1){
+
+                finalItems[
+                    existingIndex
+                ].qty +=
+                    newItem.qty;
+
+            }else{
+
+                finalItems.push({
+
+                    name:
+                        newItem.name,
+
+                    price:
+                        newItem.price,
+
+                    qty:
+                        newItem.qty
+
+                });
+
+            }
+
+        });
+
+
+        /* =========================
+           FINAL TOTAL
+        ========================= */
+
+        const finalTotal =
+            finalItems.reduce(
+                (total,item)=>{
+
+                    return total +
+                        (
+                            Number(item.price) *
+                            Number(item.qty)
+                        );
+
+                },
+                0
+            );
+
+
+        /* =========================
+           SAVE ACTIVE BILL
+        ========================= */
+
+        await fb.setDoc(
+
+            billRef,
+
+            {
+
+                customerPhone:
+                    phone,
+
+                items:
+                    finalItems,
+
+                total:
+                    finalTotal,
+
+                updatedAt:
+                    fb.serverTimestamp()
+
+            },
+
+            {
+                merge:true
+            }
+
+        );
+
+
+        /* =========================
+           SUCCESS
+        ========================= */
+
+        cart = [];
+
+        saveCart();
+
+        updateCart();
+
+
+        alert(
+            "Order Placed Successfully"
+        );
+
+
+        return true;
+
+
+    }catch(error){
+
+        console.error(
+            "Firebase Order Error:",
+            error
+        );
+
+
+        alert(
+            "Firebase Error:\n" +
+            error.message
+        );
+
+
+        return false;
+
+    }
 
 }
 
@@ -798,31 +1141,65 @@ async function saveOrderToFirebase() {
 ========================= */
 
 const checkoutButton =
-  document.getElementById(
-    "checkoutBtn"
-  );
+    document.getElementById(
+        "checkoutBtn"
+    );
 
 
-if (checkoutButton) {
+if(checkoutButton){
 
-  checkoutButton.addEventListener(
-    "click",
-    async () => {
+    checkoutButton.addEventListener(
+        "click",
+        async()=>{
 
-      if (
-        cart.length === 0
-      ) {
+            if(
+                !Array.isArray(cart) ||
+                cart.length === 0
+            ){
 
-        alert("Cart Empty");
+                alert(
+                    "Cart Empty"
+                );
 
-        return;
+                return;
 
-      }
+            }
 
 
-      await saveOrderToFirebase();
+            checkoutButton.disabled =
+                true;
 
-    }
-  );
+            checkoutButton.innerText =
+                "Processing...";
+
+
+            const success =
+                await saveOrderToFirebase();
+
+
+            checkoutButton.disabled =
+                false;
+
+            checkoutButton.innerText =
+                "Checkout";
+
+
+            if(!success){
+
+                updateCart();
+
+            }
+
+        }
+    );
 
 }
+
+
+/* =========================
+   INITIAL LOAD
+========================= */
+
+loadCart();
+
+updateCart();
