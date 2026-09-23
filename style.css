@@ -605,50 +605,6 @@ margin:35px auto;
 }
 
 
-/* =========================
-BOOKING
-========================= */
-
-.booking-section{
-padding:100px 20px;
-}
-
-.booking-form{
-max-width:720px;
-margin:45px auto 0;
-padding:35px;
-background:#5A1626;
-border:1px solid #D4AF37;
-border-radius:18px;
-display:flex;
-flex-direction:column;
-gap:18px;
-box-shadow:0 15px 35px rgba(0,0,0,.35);
-}
-
-.booking-form input,
-.booking-form select,
-.booking-form textarea{
-width:100%;
-padding:15px 18px;
-background:#6A1B2E;
-border:1px solid rgba(212,178,111,.5);
-border-radius:10px;
-color:#fff;
-font-size:16px;
-outline:none;
-}
-
-.booking-form textarea{
-resize:none;
-min-height:120px;
-}
-
-.booking-form button{
-margin-top:10px;
-width:100%;
-}
-
 
 /* =========================
 CONTACT
