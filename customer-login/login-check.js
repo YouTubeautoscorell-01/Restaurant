@@ -1,44 +1,29 @@
-/* ===========================================
-   LOGIN-CHECK.JS
-=========================================== */
+;
+"use strict";
 
-/* =========================
-   CHECK LOGIN
-========================= */
+(function () {
+  function hasValidCustomerPhone() {
+    try {
+      const phone = localStorage.getItem("customerPhone") || "";
+      return /^[6-9]\d{9}$/.test(phone);
+    } catch (error) {
+      console.error("Customer login check error:", error);
+      return false;
+    }
+  }
 
-const customerPhone =
-localStorage.getItem("customerPhone");
+  if (!hasValidCustomerPhone()) {
+    window.location.replace("customer-login/login.html");
+  }
 
-if(!customerPhone){
+  window.logoutCustomer = function () {
+    try {
+      localStorage.removeItem("customerPhone");
+      localStorage.removeItem("customerCart");
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
 
-window.location.replace("customer-login/login.html");
-
-}
-
-/* =========================
-   PREVENT BACK BUTTON
-========================= */
-
-history.pushState(null,null,location.href);
-
-window.onpopstate=function(){
-
-history.go(1);
-
-};
-
-/* =========================
-   LOGOUT FUNCTION
-========================= */
-
-function logoutCustomer(){
-
-localStorage.removeItem("customerPhone");
-
-window.location.replace("customer-login/login.html");
-
-}
-
-/* Global */
-
-window.logoutCustomer=logoutCustomer;
+    window.location.replace("customer-login/login.html");
+  };
+})();
