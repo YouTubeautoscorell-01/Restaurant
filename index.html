@@ -1,951 +1,472 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3B0A16">
+  <meta name="description" content="Restaurant self-ordering menu">
+  <title>Self Ordering | Restaurant</title>
 
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Royal Navsari Dining</title>
-
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
-rel="stylesheet">
-
-<link rel="stylesheet"
-href="style.css">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-
-<header class="navbar">
-
-<div class="logo">
-ROYAL NAVSARI DINING
-</div>
-
-<div class="menu-btn" id="menuBtn">
-
-<span></span>
-<span></span>
-<span></span>
-
-</div>
-
-</header>
-
-
-<!-- ================= MOBILE MENU ================= -->
-
-<nav class="mobile-menu" id="mobileMenu">
-
-<a href="#home">Home</a>
-<a href="#story">Our Story</a>
-<a href="#self-ordering">Self Ordering</a>
-<a href="#location">Location</a>
-<a href="#booking">Table Booking</a>
-<a href="#contact">Contact</a>
-
-</nav>
-
-
-<!-- ================= HERO ================= -->
-
-<section class="hero" id="home">
-
-<div class="hero-overlay"></div>
-
-<div class="hero-content">
-
-<h1>
-ROYAL NAVSARI DINING
-</h1>
-
-<div class="divider"></div>
-
-<p>
-Authentic Indian Flavours,
-Timeless Hospitality
-</p>
-
-<a href="#self-ordering"
-class="gold-btn">
-
-SELF ORDERING
-
-</a>
-
-</div>
-
-</section>
-
-
-<!-- ================= STORY ================= -->
-
-<section class="story-section" id="story">
-
-<h2>
-OUR STORY
-</h2>
-
-<div class="small-divider"></div>
-
-<p>
-
-Royal Navsari Dining brings together
-traditional Indian recipes,
-premium ingredients and warm hospitality.
-
-Inspired by the royal dining culture of India,
-every dish is prepared with passion
-and served with elegance.
-
-</p>
-
-<button
-id="storyBtn"
-class="gold-btn">
-
-READ MORE
-
-</button>
-
-</section>
-
-
-<!-- ================= STORY POPUP ================= -->
-
-<div class="story-popup" id="storyPopup">
-
-<div class="popup-box">
-
-<span
-class="close-popup"
-id="closeStory">
-
-×
-
-</span>
-
-<h2>
-ABOUT OUR RESTAURANT
-</h2>
-
-<p>
-
-We believe food is more than a meal —
-it is an experience.
-
-From aromatic curries
-to handcrafted desserts,
-our chefs combine tradition
-and innovation to create
-extraordinary flavours.
-
-Every corner of our restaurant
-reflects comfort,
-luxury
-and Indian culture.
-
-</p>
-
-</div>
-
-</div>
-
-
-<!-- ================= SELF ORDERING ================= -->
-
-<section
-class="food-gallery-section"
-id="self-ordering">
-
-<div class="gallery-header">
-
-<h2>
-SELF ORDERING
-</h2>
-
-<p>
-Order your favourite dishes directly from your table with a quick and easy self-ordering experience.
-</p>
-
-</div>
-
-
-<div class="food-gallery">
-
-
-<!-- 1 -->
-
-<div class="order-card">
-
-<img
-src="images/paneer-tikka.jpg"
-alt="Paneer Tikka">
-
-<h3>Paneer Tikka</h3>
-
-<p class="food-price">₹209</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 2 -->
-
-<div class="order-card">
-
-<img
-src="images/butter-paneer.jpg"
-alt="Butter Paneer">
-
-<h3>Butter Paneer</h3>
-
-<p class="food-price">₹250</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 3 -->
-
-<div class="order-card">
-
-<img
-src="images/kadhai-paneer.jpg"
-alt="Kadhai Paneer">
-
-<h3>Kadhai Paneer</h3>
-
-<p class="food-price">₹270</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 4 -->
-
-<div class="order-card">
-
-<img
-src="images/veg-biryani.jpg"
-alt="Veg Biryani">
-
-<h3>Veg Biryani</h3>
-
-<p class="food-price">₹280</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 5 -->
-
-<div class="order-card">
-
-<img
-src="images/dal-makhani.jpg"
-alt="Dal Makhani">
-
-<h3>Dal Makhani</h3>
-
-<p class="food-price">₹150</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 6 -->
-
-<div class="order-card">
-
-<img
-src="images/hakka-noodles.jpg"
-alt="Hakka Noodles">
-
-<h3>Hakka Noodles</h3>
-
-<p class="food-price">₹180</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 7 -->
-
-<div class="order-card">
-
-<img
-src="images/manchurian.jpg"
-alt="Manchurian">
-
-<h3>Manchurian</h3>
-
-<p class="food-price">₹100</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 8 -->
-
-<div class="order-card">
-
-<img
-src="images/pizza.jpg"
-alt="Pizza">
-
-<h3>Pizza</h3>
-
-<p class="food-price">₹210</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 9 -->
-
-<div class="order-card">
-
-<img
-src="images/margherita.jpg"
-alt="Margherita Pizza">
-
-<h3>Margherita Pizza</h3>
-
-<p class="food-price">₹240</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 10 -->
-
-<div class="order-card">
-
-<img
-src="images/burger.jpg"
-alt="Burger">
-
-<h3>Burger</h3>
-
-<p class="food-price">₹130</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 11 -->
-
-<div class="order-card">
-
-<img
-src="images/sandwich.jpg"
-alt="Sandwich">
-
-<h3>Sandwich</h3>
-
-<p class="food-price">₹100</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 12 -->
-
-<div class="order-card">
-
-<img
-src="images/dosa.jpg"
-alt="Masala Dosa">
-
-<h3>Masala Dosa</h3>
-
-<p class="food-price">₹80</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 13 -->
-
-<div class="order-card">
-
-<img
-src="images/pavbhaji.jpg"
-alt="Pav Bhaji">
-
-<h3>Pav Bhaji</h3>
-
-<p class="food-price">₹180</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 14 -->
-
-<div class="order-card">
-
-<img
-src="images/chole.jpg"
-alt="Chole Bhature">
-
-<h3>Chole Bhature</h3>
-
-<p class="food-price">₹150</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 15 -->
-
-<div class="order-card">
-
-<img
-src="images/thali.jpg"
-alt="Royal Thali">
-
-<h3>Royal Thali</h3>
-
-<p class="food-price">₹250</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 16 -->
-
-<div class="order-card">
-
-<img
-src="images/gulabjamun.jpg"
-alt="Gulab Jamun">
-
-<h3>Gulab Jamun</h3>
-
-<p class="food-price">₹100</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 17 -->
-
-<div class="order-card">
-
-<img
-src="images/rasmalai.jpg"
-alt="Rasmalai">
-
-<h3>Rasmalai</h3>
-
-<p class="food-price">₹100</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 18 -->
-
-<div class="order-card">
-
-<img
-src="images/brownie.jpg"
-alt="Brownie">
-
-<h3>Brownie</h3>
-
-<p class="food-price">₹200</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 19 -->
-
-<div class="order-card">
-
-<img
-src="images/coldcoffee.jpg"
-alt="Cold Coffee">
-
-<h3>Cold Coffee</h3>
-
-<p class="food-price">₹80</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-<!-- 20 -->
-
-<div class="order-card">
-
-<img
-src="images/mangoshake.jpg"
-alt="Mango Shake">
-
-<h3>Mango Shake</h3>
-
-<p class="food-price">₹90</p>
-
-<div class="cart-controls">
-
-<button class="qty-btn qty-minus">−</button>
-
-<span class="qty-number">1</span>
-
-<button class="qty-btn qty-plus">+</button>
-
-<button class="gold-btn add-cart">
-Add To Cart
-</button>
-
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- ================= CART ================= -->
-
-<div class="cart-box">
-
-<h2>
-Your Cart
-</h2>
-
-<div id="cartItems"></div>
-
-<h3 id="cartTotal">
-Total : ₹0
-</h3>
-
-<button
-class="gold-btn"
-id="checkoutBtn">
-
-Checkout
-
-</button>
-
-</div>
-
-
-<!-- ================= LOCATION ================= -->
-
-<section
-class="location-section"
-id="location">
-
-<div class="location-overlay"></div>
-
-<div class="location-content">
-
-<h2>
-OUR LOCATION
-</h2>
-
-<div class="small-divider"></div>
-
-<img
-class="location-image"
-src="images/navsari-restaurant.jpg"
-alt="Restaurant">
-
-<br><br>
-
-<button
-class="gold-btn"
-id="exploreLocation">
-
-EXPLORE LOCATION
-
-</button>
-
-</div>
-
-</section>
-
-
-
-
-<!-- ================= CONTACT ================= -->
-
-<section id="contact">
-
-<h2>
-CONTACT US
-</h2>
-
-<div class="small-divider"></div>
-
-<div class="contact-grid">
-
-<div class="contact-box">
-
-<h3>Phone</h3>
-
-<p>
-+91 98765 43210
-</p>
-
-</div>
-
-<div class="contact-box">
-
-<h3>Email</h3>
-
-<p>
-info@royalnavsaridining.com
-</p>
-
-</div>
-
-<div class="contact-box">
-
-<h3>Address</h3>
-
-<p>
-Near Dudhiya Talav<br>
-Navsari<br>
-Gujarat<br>
-India
-</p>
-
-</div>
-
-<div class="contact-box">
-
-<h3>Opening Hours</h3>
-
-<p>
-Monday - Sunday
-<br>
-11:00 AM - 11:00 PM
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-<h2>
-ROYAL NAVSARI DINING
-</h2>
-
-<div class="small-divider"></div>
-
-<p>
-Authentic Indian Flavours,
-Timeless Hospitality
-</p>
-
-<br>
-
-<p>
-© 2026 Royal Navsari Dining.
-All Rights Reserved.
-</p>
-
-</footer>
-
-
-<!-- ================= LOADER ================= -->
-
-<div id="loader">
-
-<div class="loader-circle"></div>
-
-</div>
-
-
-<!-- ================= FIREBASE ================= -->
-
-<script
-type="module"
-src="firebase.js">
-</script>
-
-<script
-src="customer-login/login-check.js">
-</script>
-
-<script
-src="script.js">
-</script>
+  <!-- HEADER -->
+  <header class="navbar">
+    <a class="logo" href="#home" style="text-decoration:none">
+      SELF ORDERING
+    </a>
+
+    <div style="display:flex;align-items:center;gap:14px">
+      <span id="customerPhoneDisplay"
+        style="font-size:12px;color:#E8D7B0;overflow-wrap:anywhere">
+        Customer
+      </span>
+
+      <button id="logoutBtn" type="button" class="gold-btn"
+        style="margin:0;padding:9px 12px;font-size:11px;letter-spacing:1px">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+      </button>
+    </div>
+  </header>
+
+  <main id="home">
+
+    <!-- MENU INTRO -->
+    <section class="food-gallery-section" style="padding-top:120px">
+
+      <div class="gallery-header">
+        <h2>OUR MENU</h2>
+        <div class="small-divider"></div>
+        <p>Discover your favourites and order fresh food with ease.</p>
+      </div>
+
+      <!-- SEARCH -->
+      <div style="max-width:650px;margin:0 auto 25px;display:flex;gap:10px">
+        <label for="foodSearch" style="position:absolute;left:-9999px">
+          Search food
+        </label>
+        <input
+          id="foodSearch"
+          type="search"
+          placeholder="Search pizza, burger, dessert..."
+          autocomplete="off"
+          style="flex:1;min-width:0;padding:14px 16px;border:1px solid #D4AF37;border-radius:10px;background:#5A1626;color:#F8F5ED;font:inherit"
+        >
+        <button id="clearSearch" type="button" class="gold-btn"
+          style="margin:0;padding:12px 14px;letter-spacing:0">
+          Clear
+        </button>
+      </div>
+
+      <!-- CATEGORY ICONS -->
+      <div class="category-list"
+        style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:0 auto 28px">
+
+        <button type="button" class="category-btn active"
+          data-category="All" aria-pressed="true">
+          <i class="fa-solid fa-utensils"></i>
+          <span>All</span>
+        </button>
+
+        <button type="button" class="category-btn"
+          data-category="Pizza" aria-pressed="false">
+          <i class="fa-solid fa-pizza-slice"></i>
+          <span>Pizza</span>
+        </button>
+
+        <button type="button" class="category-btn"
+          data-category="Burger" aria-pressed="false">
+          <i class="fa-solid fa-burger"></i>
+          <span>Burger</span>
+        </button>
+
+        <button type="button" class="category-btn"
+          data-category="Sandwich" aria-pressed="false">
+          <i class="fa-solid fa-bread-slice"></i>
+          <span>Sandwich</span>
+        </button>
+
+        <button type="button" class="category-btn"
+          data-category="Bowls" aria-pressed="false">
+          <i class="fa-solid fa-bowl-food"></i>
+          <span>Bowls</span>
+        </button>
+
+        <button type="button" class="category-btn"
+          data-category="Dessert" aria-pressed="false">
+          <i class="fa-solid fa-ice-cream"></i>
+          <span>Dessert</span>
+        </button>
+
+        <button type="button" class="category-btn"
+          data-category="Drinks" aria-pressed="false">
+          <i class="fa-solid fa-mug-hot"></i>
+          <span>Drinks</span>
+        </button>
+
+        <button type="button" class="category-btn"
+          data-category="Indian" aria-pressed="false">
+          <i class="fa-solid fa-bowl-rice"></i>
+          <span>Indian</span>
+        </button>
+
+      </div>
+
+      <!-- MENU HEADING -->
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:22px">
+        <h2 id="menuHeading" style="font-size:32px;margin:0">Popular Items</h2>
+        <span id="itemCount" style="color:#E8D7B0;font-size:14px">20 items</span>
+      </div>
+
+      <!-- FOOD CARDS -->
+      <div class="food-gallery" id="foodGallery">
+
+        <article class="order-card" data-category="Indian" data-name="Paneer Tikka">
+          <img src="images/paneer-tikka.jpg" alt="Paneer Tikka" loading="lazy">
+          <h3>Paneer Tikka</h3>
+          <p class="food-price">₹209</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Paneer Tikka quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Paneer Tikka quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Indian" data-name="Butter Paneer">
+          <img src="images/butter-paneer.jpg" alt="Butter Paneer" loading="lazy">
+          <h3>Butter Paneer</h3>
+          <p class="food-price">₹250</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Butter Paneer quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Butter Paneer quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Indian" data-name="Kadhai Paneer">
+          <img src="images/kadhai-paneer.jpg" alt="Kadhai Paneer" loading="lazy">
+          <h3>Kadhai Paneer</h3>
+          <p class="food-price">₹270</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Kadhai Paneer quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Kadhai Paneer quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Bowls" data-name="Veg Biryani">
+          <img src="images/veg-biryani.jpg" alt="Veg Biryani" loading="lazy">
+          <h3>Veg Biryani</h3>
+          <p class="food-price">₹280</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Veg Biryani quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Veg Biryani quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Indian" data-name="Dal Makhani">
+          <img src="images/dal-makhani.jpg" alt="Dal Makhani" loading="lazy">
+          <h3>Dal Makhani</h3>
+          <p class="food-price">₹150</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Dal Makhani quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Dal Makhani quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Bowls" data-name="Hakka Noodles">
+          <img src="images/hakka-noodles.jpg" alt="Hakka Noodles" loading="lazy">
+          <h3>Hakka Noodles</h3>
+          <p class="food-price">₹180</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Hakka Noodles quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Hakka Noodles quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Indian" data-name="Manchurian">
+          <img src="images/manchurian.jpg" alt="Manchurian" loading="lazy">
+          <h3>Manchurian</h3>
+          <p class="food-price">₹100</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Manchurian quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Manchurian quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Pizza" data-name="Pizza">
+          <img src="images/pizza.jpg" alt="Pizza" loading="lazy">
+          <h3>Pizza</h3>
+          <p class="food-price">₹210</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Pizza quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Pizza quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Pizza" data-name="Margherita">
+          <img src="images/margherita.jpg" alt="Margherita Pizza" loading="lazy">
+          <h3>Margherita Pizza</h3>
+          <p class="food-price">₹240</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Margherita quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Margherita quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Burger" data-name="Burger">
+          <img src="images/burger.jpg" alt="Burger" loading="lazy">
+          <h3>Burger</h3>
+          <p class="food-price">₹130</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Burger quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Burger quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Sandwich" data-name="Sandwich">
+          <img src="images/sandwich.jpg" alt="Sandwich" loading="lazy">
+          <h3>Sandwich</h3>
+          <p class="food-price">₹100</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Sandwich quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Sandwich quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Indian" data-name="Masala Dosa">
+          <img src="images/dosa.jpg" alt="Masala Dosa" loading="lazy">
+          <h3>Masala Dosa</h3>
+          <p class="food-price">₹80</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Masala Dosa quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Masala Dosa quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Indian" data-name="Pav Bhaji">
+          <img src="images/pavbhaji.jpg" alt="Pav Bhaji" loading="lazy">
+          <h3>Pav Bhaji</h3>
+          <p class="food-price">₹180</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Pav Bhaji quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Pav Bhaji quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Indian" data-name="Chole Bhature">
+          <img src="images/chole.jpg" alt="Chole Bhature" loading="lazy">
+          <h3>Chole Bhature</h3>
+          <p class="food-price">₹150</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Chole Bhature quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Chole Bhature quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Bowls" data-name="Royal Thali">
+          <img src="images/thali.jpg" alt="Royal Thali" loading="lazy">
+          <h3>Royal Thali</h3>
+          <p class="food-price">₹250</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Royal Thali quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Royal Thali quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Dessert" data-name="Gulab Jamun">
+          <img src="images/gulabjamun.jpg" alt="Gulab Jamun" loading="lazy">
+          <h3>Gulab Jamun</h3>
+          <p class="food-price">₹100</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Gulab Jamun quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Gulab Jamun quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Dessert" data-name="Rasmalai">
+          <img src="images/rasmalai.jpg" alt="Rasmalai" loading="lazy">
+          <h3>Rasmalai</h3>
+          <p class="food-price">₹100</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Rasmalai quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Rasmalai quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Dessert" data-name="Brownie">
+          <img src="images/brownie.jpg" alt="Brownie" loading="lazy">
+          <h3>Brownie</h3>
+          <p class="food-price">₹200</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Brownie quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Brownie quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Drinks" data-name="Cold Coffee">
+          <img src="images/coldcoffee.jpg" alt="Cold Coffee" loading="lazy">
+          <h3>Cold Coffee</h3>
+          <p class="food-price">₹80</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Cold Coffee quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Cold Coffee quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+        <article class="order-card" data-category="Drinks" data-name="Mango Shake">
+          <img src="images/mangoshake.jpg" alt="Mango Shake" loading="lazy">
+          <h3>Mango Shake</h3>
+          <p class="food-price">₹90</p>
+          <div class="quantity-control" style="display:flex;align-items:center;justify-content:center;gap:15px;padding:0 10px 15px">
+            <button type="button" class="qty-minus" aria-label="Decrease Mango Shake quantity">−</button>
+            <span class="qty-number">1</span>
+            <button type="button" class="qty-plus" aria-label="Increase Mango Shake quantity">+</button>
+          </div>
+          <button type="button" class="gold-btn add-cart">Add to Cart</button>
+        </article>
+
+      </div>
+
+      <p id="noResults" hidden style="padding:30px;text-align:center">
+        No food items found. Try another search.
+      </p>
+
+    </section>
+
+    <!-- CART -->
+    <section id="cart" style="padding-top:20px">
+      <div class="cart-box">
+        <h2>
+          <i class="fa-solid fa-cart-shopping"></i>
+          Your Cart
+        </h2>
+
+        <p id="cartCount" style="text-align:center;font-size:14px;margin-bottom:10px">
+          0 items
+        </p>
+
+        <div id="cartItems"></div>
+
+        <h3 id="cartTotal">Total : ₹0</h3>
+
+        <button type="button" class="gold-btn" id="checkoutBtn">
+          Place Order <span>→</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+<!-- FOOTER -->
+  <footer style="text-align:center;padding:30px 15px;border-top:1px solid rgba(212,175,55,.35)">
+    <p style="font-size:13px;color:#E8D7B0">
+      Fresh food. Easy ordering.
+    </p>
+  </footer>
+<!-- LOADER -->
+  <div id="loader" aria-label="Loading menu"
+    style="position:fixed;inset:0;z-index:100000;background:#3B0A16;display:flex;align-items:center;justify-content:center">
+    <div class="loader-circle"
+      style="width:48px;height:48px;border:4px solid rgba(232,215,176,.25);border-top-color:#E8D7B0;border-radius:50%;animation:loaderSpin 1s linear infinite">
+    </div>
+  </div>
+  <style>
+    .category-btn {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-width:76px;
+      min-height:72px;
+      padding:12px;
+      border:1px solid #D4AF37;
+      border-radius:12px;
+      background:#5A1626;
+      color:#E8D7B0;
+      cursor:pointer;
+      font:inherit;
+      font-size:12px;
+      transition:background .2s,transform .2s;
+    }
+    .category-btn i { font-size:21px; }
+    .category-btn.active,
+    .category-btn:hover {
+      background:#E8D7B0;
+      color:#3B0A16;
+    }
+        .quantity-control button {
+      width:32px;
+      height:32px;
+      border:1px solid #D4AF37;
+      border-radius:8px;
+      background:#3B0A16;
+      color:#E8D7B0;
+      font-size:21px;
+      cursor:pointer;
+    }
+    .quantity-control .qty-number {
+      min-width:20px;
+      text-align:center;
+      color:#F8F5ED;
+    }
+        @keyframes loaderSpin { to { transform:rotate(360deg); } }
+    @media(max-width:420px) {
+      .navbar { padding:14px 10px; }
+      .navbar .logo { font-size:17px;letter-spacing:1px; }
+      #customerPhoneDisplay { max-width:105px; }
+      .category-btn { min-width:66px;min-height:66px;padding:9px; }
+      .food-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+  </style>
+
+  <!-- Firebase and app scripts -->
+  <script type="module" src="firebase.js"></script>
+  <script src="customer-login/login-check.js"></script>
+  <script src="script.js"></script>
 
 </body>
-
-  </html>
+</html>
