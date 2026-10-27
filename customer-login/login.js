@@ -1,115 +1,64 @@
-/* ===========================================
-   LOGIN.JS
-=========================================== */
 
-/* =========================
-   CHECK ALREADY LOGIN
-========================= */
+"use strict";
 
-const savedPhone =
-localStorage.getItem("customerPhone");
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("loginForm");
+  const phoneInput = document.getElementById("mobileNumber");
+  const errorMessage = document.getElementById("loginError");
+  const continueButton = document.getElementById("continueBtn");
 
-if(savedPhone){
+  if (!form || !phoneInput) {
+    console.error("Login form ya mobile number field nahi mila.");
+    return;
+  }
 
-window.location.href="../index.html";
+  function showError(message) {
+    if (errorMessage) {
+      errorMessage.textContent = message;
+      errorMessage.hidden = false;
+    }
+  }
 
-}
+  function clearError() {
+    if (errorMessage) {
+      errorMessage.textContent = "";
+      errorMessage.hidden = true;
+    }
+  }
 
-/* =========================
-   LOGIN BUTTON
-========================= */
+  phoneInput.addEventListener("input", function () {
+    phoneInput.value = phoneInput.value
+      .replace(/\D/g, "")
+      .slice(0, 10);
 
-const loginBtn =
-document.getElementById("loginBtn");
+    clearError();
+  });
 
-if(loginBtn){
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    clearError();
 
-loginBtn.addEventListener("click",loginCustomer);
+    const phone = phoneInput.value.trim();
 
-}
+    if (!/^[6-9]\d{9}$/.test(phone)) {
+      showError("Valid 10-digit Indian mobile number enter karein.");
+      phoneInput.focus();
+      return;
+    }
 
-/* =========================
-   ENTER KEY LOGIN
-========================= */
+    try {
+      localStorage.setItem("customerPhone", phone);
+    } catch (error) {
+      showError("Browser storage available nahi hai. Browser settings check karein.");
+      console.error("Login storage error:", error);
+      return;
+    }
 
-const phoneInput =
-document.getElementById("phone");
+    if (continueButton) {
+      continueButton.disabled = true;
+      continueButton.textContent = "Opening menu...";
+    }
 
-if(phoneInput){
-
-phoneInput.addEventListener("keypress",(e)=>{
-
-if(e.key==="Enter"){
-
-loginCustomer();
-
-}
-
+    window.location.href = "../index.html";
+  });
 });
-
-}
-
-/* =========================
-   LOGIN FUNCTION
-========================= */
-
-function loginCustomer(){
-
-const phone =
-phoneInput.value.trim();
-
-/* Empty */
-
-if(phone===""){
-
-alert("Please Enter Mobile Number");
-
-phoneInput.focus();
-
-return;
-
-}
-
-/* Only Number */
-
-if(isNaN(phone)){
-
-alert("Only Numbers Allowed");
-
-phoneInput.focus();
-
-return;
-
-}
-
-/* 10 Digit */
-
-if(phone.length!==10){
-
-alert("Please Enter Valid 10 Digit Mobile Number");
-
-phoneInput.focus();
-
-return;
-
-}
-
-/* Save */
-
-localStorage.setItem(
-
-"customerPhone",
-
-phone
-
-);
-
-/* Login Success */
-
-alert("Login Successful");
-
-/* Redirect */
-
-window.location.href="../index.html";
-
-}
