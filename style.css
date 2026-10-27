@@ -1,834 +1,1074 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:'Montserrat',sans-serif;
-background:#3B0A16;
-color:#F8F5ED;
-overflow-x:hidden;
-
-background-image:
-linear-gradient(
-45deg,
-rgba(212,178,111,.04) 25%,
-transparent 25%,
-transparent 75%,
-rgba(212,178,111,.04) 75%
-),
-linear-gradient(
--45deg,
-rgba(212,178,111,.04) 25%,
-transparent 25%,
-transparent 75%,
-rgba(212,178,111,.04) 75%
-);
-
-background-size:80px 80px;
-background-position:0 0,40px 40px;
-}
-
-
-/* =========================
-NAVBAR
-========================= */
-
-.navbar{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 25px;
-background:rgba(59,10,22,.95);
-backdrop-filter:blur(12px);
-border-bottom:1px solid rgba(212,178,111,.25);
-z-index:9999;
-}
-
-.logo{
-font-size:32px;
-font-family:'Cormorant Garamond',serif;
-font-weight:700;
-color:#E8D7B0;
-letter-spacing:2px;
-}
-
-.menu-btn{
-display:flex;
-flex-direction:column;
-gap:6px;
-cursor:pointer;
-width:42px;
-}
-
-.menu-btn span{
-width:100%;
-height:2px;
-background:#E8D7B0;
-border-radius:30px;
-transition:.3s;
-}
-
-
-/* =========================
-MOBILE MENU
-========================= */
-
-.mobile-menu{
-position:fixed;
-top:0;
-right:-100%;
-width:260px;
-height:100vh;
-padding:120px 35px;
-display:flex;
-flex-direction:column;
-gap:24px;
-background:#4D1524;
-transition:.35s;
-z-index:9998;
-}
-
-.mobile-menu.active{
-right:0;
-}
-
-.mobile-menu a{
-text-decoration:none;
-color:#E8D7B0;
-font-size:18px;
-letter-spacing:1px;
-}
-
-
-/* =========================
-HERO
-========================= */
-
-.hero{
-position:relative;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:url("images/hero.jpg") center/cover no-repeat;
-}
-
-.hero-overlay{
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.55);
-}
-
-.hero-content{
-position:relative;
-z-index:2;
-padding:20px;
-}
-
-.hero h1{
-font-family:'Cormorant Garamond',serif;
-font-size:62px;
-color:#E8D7B0;
-letter-spacing:3px;
-margin-bottom:20px;
-}
-
-.hero p{
-max-width:700px;
-margin:auto;
-font-size:22px;
-line-height:1.8;
-}
-
-.divider{
-width:120px;
-height:2px;
-background:#E8D7B0;
-margin:25px auto;
-}
-
-.small-divider{
-width:80px;
-height:2px;
-background:#E8D7B0;
-margin:20px auto;
-}
-
-
-/* =========================
-BUTTON
-========================= */
-
-.gold-btn{
-display:inline-block;
-padding:14px 35px;
-margin-top:25px;
-border:1px solid #E8D7B0;
-background:transparent;
-color:#E8D7B0;
-text-decoration:none;
-letter-spacing:2px;
-cursor:pointer;
-transition:.35s;
-}
-
-.gold-btn:hover{
-background:#E8D7B0;
-color:#3B0A16;
-transform:translateY(-3px);
-box-shadow:0 8px 20px rgba(212,175,55,.35);
-}
-
-
-/* =========================
-COMMON SECTION
-========================= */
-
-section{
-padding:80px 20px;
-text-align:center;
-}
-
-section h2{
-font-size:50px;
-font-family:'Cormorant Garamond',serif;
-color:#E8D7B0;
-letter-spacing:5px;
-margin-bottom:15px;
-}
-
-section p{
-max-width:900px;
-margin:auto;
-font-size:20px;
-line-height:1.8;
-}
-
-
-/* =========================
-STORY
-========================= */
-
-.story-section{
-padding:100px 20px;
-text-align:center;
-}
-
-.story-section p{
-max-width:850px;
-margin:auto;
-font-size:20px;
-line-height:2;
-}
-
-
-/* =========================
-STORY POPUP
-========================= */
-
-.story-popup{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-display:none;
-justify-content:center;
-align-items:center;
-padding:20px;
-background:rgba(0,0,0,.75);
-z-index:99999;
-backdrop-filter:blur(5px);
-}
-
-.story-popup.active{
-display:flex;
-}
-
-.popup-box{
-position:relative;
-width:100%;
-max-width:700px;
-background:#5A1626;
-padding:40px;
-border-radius:15px;
-border:2px solid #D4AF37;
-box-shadow:0 20px 45px rgba(0,0,0,.45);
-}
-
-.popup-box h2{
-font-size:42px;
-font-family:'Cormorant Garamond',serif;
-color:#E8D7B0;
-margin-bottom:20px;
-}
-
-.popup-box p{
-font-size:18px;
-line-height:1.9;
-}
-
-.close-popup{
-position:absolute;
-top:15px;
-right:20px;
-font-size:36px;
-color:#E8D7B0;
-cursor:pointer;
-}
-
-
-/* =========================
-FOOD GALLERY
-========================= */
-
-.food-gallery-section{
-padding:80px 20px;
-}
-
-.gallery-header{
-text-align:center;
-margin-bottom:45px;
-}
-
-.gallery-header h2{
-font-size:54px;
-font-family:'Cormorant Garamond',serif;
-color:#E8D7B0;
-letter-spacing:4px;
-}
-
-.gallery-header p{
-max-width:750px;
-margin:auto;
-font-size:18px;
-line-height:1.8;
-color:#ddd;
-}
-
-.food-gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:22px;
-align-items:stretch;
-}
-
-
-/* =========================
-FOOD CARD
-========================= */
-
-.order-card{
-background:#5A1626;
-border:1px solid #D4AF37;
-border-radius:16px;
-overflow:hidden;
-display:flex;
-flex-direction:column;
-height:100%;
-transition:.35s;
-box-shadow:0 10px 25px rgba(0,0,0,.35);
-}
-
-.order-card:hover{
-transform:translateY(-8px);
-box-shadow:0 18px 40px rgba(0,0,0,.45);
-}
-
-.order-card img{
-width:100%;
-height:180px;
-display:block;
-object-fit:cover;
-transition:.5s;
-}
-
-.order-card:hover img{
-transform:scale(1.08);
-}
-
-.order-card h3{
-font-family:'Cormorant Garamond',serif;
-font-size:22px;
-color:#E8D7B0;
-padding:15px 10px 8px;
-text-align:center;
-min-height:60px;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-.food-price{
-font-size:24px;
-font-weight:bold;
-text-align:center;
-color:#FFD76A;
-margin-bottom:12px;
-}
-
-
-/* =========================
-QUANTITY CONTROLS
-========================= */
-
-.cart-controls{
-display:flex;
-align-items:center;
-gap:6px;
-width:calc(100% - 20px);
-margin:auto 10px 15px;
-}
-
-.qty-btn{
-width:38px;
-height:42px;
-flex-shrink:0;
-
-border:1px solid #D4AF37;
-border-radius:8px;
-
-background:#3B0A16;
-color:#FFD76A;
-
-font-size:23px;
-font-weight:bold;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-cursor:pointer;
-}
-
-.qty-btn:hover{
-background:#D4AF37;
-color:#3B0A16;
-}
-
-.qty-btn:active{
-transform:scale(.94);
-}
-
-.qty-number{
-min-width:24px;
-text-align:center;
-color:#fff;
-font-size:17px;
-font-weight:600;
-}
-
-.cart-controls .add-cart{
-flex:1;
-min-width:0;
-margin:0;
-padding:11px 5px;
-font-size:12px;
-letter-spacing:.5px;
-white-space:nowrap;
-}
-
-
-/* =========================
-CART
-========================= */
-
-.cart-box{
-max-width:900px;
-margin:70px auto;
-padding:30px;
-background:#5A1626;
-border:1px solid #D4AF37;
-border-radius:16px;
-box-shadow:0 15px 35px rgba(0,0,0,.35);
-}
-
-.cart-box h2{
-font-family:'Cormorant Garamond',serif;
-font-size:42px;
-color:#E8D7B0;
-text-align:center;
-margin-bottom:30px;
-}
-
-.cart-item{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 0;
-border-bottom:1px solid rgba(255,255,255,.12);
-gap:15px;
-}
-
-.cart-item div{
-flex:1;
-}
-
-.cart-item h4{
-font-size:20px;
-color:#fff;
-margin-bottom:5px;
-}
-
-.cart-item p{
-font-size:18px;
-color:#FFD76A;
-margin:0;
-}
-
-
-/* CART QUANTITY */
-
-.cart-quantity{
-display:flex;
-align-items:center;
-gap:8px;
-}
-
-.cart-qty-btn{
-width:34px;
-height:34px;
-border:1px solid #D4AF37;
-border-radius:7px;
-background:#3B0A16;
-color:#FFD76A;
-font-size:20px;
-cursor:pointer;
-}
-
-.cart-qty-number{
-min-width:25px;
-text-align:center;
-font-weight:bold;
-color:#fff;
-}
-
-
-/* REMOVE */
-
-.remove-btn{
-background:#C62828;
-color:#fff;
-border:none;
-padding:9px 18px;
-border-radius:8px;
-cursor:pointer;
-font-size:15px;
-}
-
-#cartTotal{
-margin-top:25px;
-padding-top:20px;
-border-top:1px solid rgba(255,255,255,.15);
-font-size:28px;
-font-weight:700;
-color:#FFD76A;
-text-align:right;
-}
-
-#checkoutBtn{
-width:100%;
-margin-top:25px;
-padding:16px;
-font-size:18px;
-border-radius:10px;
-}
-
-#cartItems:empty::before{
-content:"Your cart is empty.";
-display:block;
-text-align:center;
-padding:25px;
-font-size:18px;
-color:#ccc;
-}
-
-
-/* =========================
-LOCATION
-========================= */
-
-.location-section{
-position:relative;
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:100px 20px;
-overflow:hidden;
-}
-
-.location-section::before{
-content:"";
-position:absolute;
-inset:0;
-background:url("images/navsari-restaurant.jpg") center/cover no-repeat;
-filter:brightness(.35);
-z-index:-2;
-}
-
-.location-section::after{
-content:"";
-position:absolute;
-inset:0;
-background:rgba(59,10,22,.45);
-z-index:-1;
-}
-
-.location-content{
-max-width:1000px;
-width:100%;
-text-align:center;
-}
-
-.location-image{
-width:100%;
-max-width:900px;
-height:420px;
-object-fit:cover;
-border-radius:18px;
-border:3px solid #D4AF37;
-box-shadow:0 20px 45px rgba(0,0,0,.45);
-display:block;
-margin:35px auto;
-}
-
-
-
-/* =========================
-CONTACT
-========================= */
-
-#contact{
-padding:100px 20px;
-}
-
-.contact-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:50px;
-}
-
-.contact-box{
-background:#5A1626;
-padding:30px;
-border-radius:16px;
-border:1px solid rgba(212,178,111,.35);
-box-shadow:0 10px 25px rgba(0,0,0,.30);
-}
-
-.contact-box h3{
-font-family:'Cormorant Garamond',serif;
-font-size:28px;
-color:#E8D7B0;
-margin-bottom:15px;
-}
-
-
-/* =========================
-FOOTER
-========================= */
-
-footer{
-background:#24070F;
-padding:70px 20px;
-text-align:center;
-border-top:1px solid rgba(212,178,111,.25);
-}
-
-footer h2{
-font-size:42px;
-font-family:'Cormorant Garamond',serif;
-color:#E8D7B0;
-margin-bottom:20px;
-}
-
-
-/* =========================
-LOADER
-========================= */
-
-#loader{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-display:flex;
-justify-content:center;
-align-items:center;
-background:#3B0A16;
-z-index:999999;
-transition:.4s;
-}
-
-.loader-circle{
-width:70px;
-height:70px;
-border:5px solid rgba(255,255,255,.15);
-border-top:5px solid #D4AF37;
-border-radius:50%;
-animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-100%{
-transform:rotate(360deg);
-}
-}
-
-
-/* =========================
-TOP BUTTON
-========================= */
-
-#topBtn{
-position:fixed;
-bottom:20px;
-left:20px;
-width:55px;
-height:55px;
-border:none;
-border-radius:50%;
-background:#D4AF37;
-color:#3B0A16;
-font-size:24px;
-cursor:pointer;
-display:none;
-z-index:99999;
-}
-
-
-/* =========================
-MOBILE
-========================= */
-
-@media(max-width:768px){
-
-.logo{
-font-size:24px;
-}
-
-.hero h1{
-font-size:38px;
-}
-
-.hero p{
-font-size:18px;
-}
-
-section h2{
-font-size:36px;
-}
-
-section p{
-font-size:17px;
-}
-
-.food-gallery{
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-}
-
-.order-card img{
-height:145px;
-}
-
-.order-card h3{
-font-size:18px;
-min-height:55px;
-}
-
-.food-price{
-font-size:20px;
-}
-
-.cart-controls{
-gap:3px;
-width:calc(100% - 10px);
-margin-left:5px;
-margin-right:5px;
-}
-
-.qty-btn{
-width:29px;
-height:36px;
-font-size:20px;
-}
-
-.qty-number{
-min-width:18px;
-font-size:14px;
-}
-
-.cart-controls .add-cart{
-padding:9px 3px;
-font-size:10px;
-letter-spacing:0;
-}
-
-.cart-box{
-padding:20px;
-margin:40px 15px;
-}
-
-.cart-item{
-flex-direction:column;
-align-items:flex-start;
-}
-
-.cart-quantity{
-width:100%;
-justify-content:center;
-}
-
-.remove-btn{
-width:100%;
-}
-
-#cartTotal{
-text-align:left;
-font-size:24px;
-}
-
-.location-image{
-height:250px;
-}
-
-.booking-form{
-padding:20px;
-}
-
-.contact-grid{
-grid-template-columns:1fr;
-}
-
-footer{
-padding:50px 20px;
-}
-
-}
-
-@media(max-width:360px){
-
-.food-gallery{
-grid-template-columns:1fr;
-}
-
-.cart-controls .add-cart{
-font-size:12px;
-}
+/* ==========================================
+   CUSTOMER SELF ORDERING APP
+   Theme: Royal Maroon, Gold & Cream
+========================================== */
 
+:root {
+  --bg: #3B0A16;
+  --card: #5A1626;
+  --card-dark: #2A0610;
+  --gold: #D4AF37;
+  --gold-light: #E8D7B0;
+  --cream: #F8F5ED;
+  --muted: #D7C8C4;
+  --border: rgba(232, 215, 176, 0.25);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(212, 175, 55, 0.08),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 40%,
+      rgba(255, 255, 255, 0.035),
+      transparent 25%
+    ),
+    var(--bg);
+  color: var(--cream);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+section {
+  width: 100%;
+}
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  min-height: 76px;
+  padding: 12px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background: rgba(42, 6, 16, 0.97);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 5px 22px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  color: var(--gold-light);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(21px, 3vw, 30px);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  line-height: 1.15;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.customer-phone {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  color: var(--gold-light);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.customer-phone i {
+  color: var(--gold);
+}
+
+.logout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 15px;
+  border: 1px solid var(--gold);
+  border-radius: 25px;
+  background: transparent;
+  color: var(--gold-light);
+  font-size: 12px;
+  font-weight: 700;
+  transition: 0.25s ease;
+}
+
+.logout-btn:hover {
+  background: var(--gold);
+  color: var(--card-dark);
+}
+
+/* ==========================================
+   MENU INTRO
+========================================== */
+
+.menu-intro {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 5% 28px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin-bottom: 8px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.menu-intro h1 {
+  margin-bottom: 12px;
+  color: var(--gold-light);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+.menu-intro p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+.search-wrapper {
+  width: min(620px, 90%);
+  margin: 0 auto 25px;
+  position: relative;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  background: var(--card-dark);
+  box-shadow: var(--shadow);
+}
+
+.search-box > i {
+  flex-shrink: 0;
+  color: var(--gold);
+  font-size: 17px;
+}
+
+.search-box input,
+#foodSearch {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  padding: 13px 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--cream);
+  font-size: 14px;
+}
+
+.search-box input::placeholder,
+#foodSearch::placeholder {
+  color: #B9A7A7;
+}
+
+.clear-search {
+  flex-shrink: 0;
+  padding: 7px;
+  border: none;
+  background: transparent;
+  color: var(--gold-light);
+  font-size: 13px;
+}
+
+/* ==========================================
+   CATEGORY FILTERS
+========================================== */
+
+.category-section {
+  width: 100%;
+  margin: 0 auto 30px;
+  padding: 0 5%;
+}
+
+.category-list {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-x: auto;
+  padding: 5px 2px 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) transparent;
+}
+
+.category-btn {
+  flex: 0 0 auto;
+  min-width: 82px;
+  min-height: 82px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+  color: var(--gold-light);
+  font-size: 11px;
+  font-weight: 600;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.category-btn i {
+  color: var(--gold);
+  font-size: 22px;
+}
+
+.category-btn:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.category-btn.active {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--card-dark);
+  box-shadow: 0 5px 18px rgba(212, 175, 55, 0.16);
+}
+
+.category-btn.active i {
+  color: var(--card-dark);
+}
+
+/* ==========================================
+   MENU HEADING
+========================================== */
+
+.menu-heading {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5% 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.menu-heading h2 {
+  color: var(--gold-light);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(25px, 4vw, 34px);
+  line-height: 1.2;
+}
+
+.item-count {
+  color: var(--muted);
+  font-size: 12px;
+  text-align: right;
+}
+
+/* ==========================================
+   FOOD GALLERY
+========================================== */
+
+.food-gallery {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5% 45px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.order-card {
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  background: linear-gradient(160deg, #641A2C, #48101F);
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 55, 0.7);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+}
+
+.food-image,
+.order-card img {
+  width: 100%;
+  height: 185px;
+  object-fit: cover;
+  background: #32101A;
+}
+
+.food-info {
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.food-name,
+.order-card h3 {
+  margin-bottom: 7px;
+  color: var(--cream);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.food-description {
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.food-price {
+  margin: 0 0 14px;
+  color: var(--gold);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.food-actions {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================
+   QUANTITY CONTROL
+========================================== */
+
+.quantity-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 36px;
+  padding: 4px 7px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.qty-minus,
+.qty-plus {
+  width: 25px;
+  height: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gold);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--gold-light);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.qty-minus:hover,
+.qty-plus:hover {
+  background: var(--gold);
+  color: var(--card-dark);
+}
+
+.qty-number {
+  min-width: 16px;
+  color: var(--cream);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ==========================================
+   ADD TO CART BUTTON
+========================================== */
+
+.add-cart {
+  min-height: 36px;
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid var(--gold);
+  border-radius: 9px;
+  background: var(--gold);
+  color: #2A0610;
+  font-size: 11px;
+  font-weight: 800;
+  transition: 0.2s ease;
+}
+
+.add-cart i {
+  font-size: 12px;
+}
+
+.add-cart:hover {
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+   NO SEARCH RESULTS
+========================================== */
+
+.no-results {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  padding: 35px 20px;
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.no-results i {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--gold);
+  font-size: 34px;
+}
+
+.no-results h3 {
+  margin-bottom: 5px;
+  color: var(--gold-light);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 25px;
+}
+
+/* ==========================================
+   CART SECTION
+========================================== */
+
+.cart-section {
+  width: 100%;
+  padding: 38px 5% 55px;
+  background: rgba(32, 4, 11, 0.5);
+  border-top: 1px solid var(--border);
+}
+
+.cart-box {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #541424, #380914);
+  box-shadow: var(--shadow);
+}
+
+.cart-title {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cart-title h2 {
+  color: var(--gold-light);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 31px;
+}
+
+.cart-count {
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  background: var(--gold);
+  color: var(--card-dark);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cart-item {
+  padding: 13px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.cart-item-name {
+  color: var(--cream);
+  font-size: 14px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.cart-item-price {
+  margin-top: 4px;
+  color: var(--gold);
+  font-size: 12px;
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-item-controls button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--gold);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--gold-light);
+}
+
+.cart-item-controls button:hover {
+  background: var(--gold);
+  color: var(--card-dark);
+}
+
+.cart-empty {
+  padding: 24px 10px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.cart-empty i {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--gold);
+  font-size: 28px;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  padding-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 1px solid var(--border);
+}
+
+.cart-summary-label {
+  color: var(--cream);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+#cartTotal {
+  color: var(--gold);
+  font-size: 21px;
+  font-weight: 800;
+  text-align: right;
+}
+
+.checkout-btn,
+#checkoutBtn {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 18px;
+  padding: 13px 18px;
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  background: var(--gold);
+  color: var(--card-dark);
+  font-size: 13px;
+  font-weight: 800;
+  transition: 0.2s ease;
+}
+
+.checkout-btn:hover,
+#checkoutBtn:hover {
+  background: var(--gold-light);
+}
+
+.checkout-btn i,
+#checkoutBtn i {
+  margin-right: 7px;
+}
+
+/* ==========================================
+   LOADER
+========================================== */
+
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: var(--card-dark);
+  color: var(--gold-light);
+  text-align: center;
+}
+
+.loader-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(212, 175, 55, 0.2);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+#loader p {
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.footer {
+  padding: 22px 5%;
+  border-top: 1px solid var(--border);
+  background: #20040B;
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+}
+
+.footer strong {
+  color: var(--gold-light);
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1050px) {
+  .food-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .food-image,
+  .order-card img {
+    height: 165px;
+  }
+
+  .food-info {
+    padding: 13px;
+  }
+
+  .food-name,
+  .order-card h3 {
+    font-size: 19px;
+  }
+
+  .food-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .quantity-control {
+    align-self: flex-start;
+  }
+
+  .add-cart {
+    width: 100%;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 650px) {
+  html {
+    scroll-padding-top: 75px;
+  }
+
+  .navbar {
+    min-height: 66px;
+    padding: 10px 4%;
+    gap: 8px;
+  }
+
+  .logo {
+    max-width: 48%;
+    font-size: 21px;
+    letter-spacing: 0.5px;
+  }
+
+  .navbar-right {
+    gap: 6px;
+  }
+
+  .customer-phone {
+    max-width: 145px;
+    padding: 7px 9px;
+    gap: 5px;
+    font-size: 10px;
+  }
+
+  .logout-btn {
+    padding: 8px 10px;
+    gap: 5px;
+    font-size: 10px;
+  }
+
+  .menu-intro {
+    padding: 34px 5% 22px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .menu-intro h1 {
+    font-size: 37px;
+  }
+
+  .menu-intro p {
+    font-size: 12px;
+  }
+
+  .search-wrapper {
+    width: 92%;
+    margin-bottom: 20px;
+  }
+
+  .search-box {
+    min-height: 47px;
+    padding: 0 13px;
+  }
+
+  .search-box input,
+  #foodSearch {
+    font-size: 12px;
+  }
+
+  .category-section {
+    padding: 0 4%;
+    margin-bottom: 20px;
+  }
+
+  .category-list {
+    justify-content: flex-start;
+    gap: 9px;
+  }
+
+  .category-btn {
+    min-width: 72px;
+    min-height: 70px;
+    padding: 9px 11px;
+    gap: 5px;
+    font-size: 10px;
+  }
+
+  .category-btn i {
+    font-size: 20px;
+  }
+
+  .menu-heading {
+    padding: 0 4% 15px;
+  }
+
+  .menu-heading h2 {
+    font-size: 27px;
+  }
+
+  .item-count {
+    font-size: 10px;
+  }
+
+  .food-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 0 4% 32px;
+  }
+
+  .order-card {
+    border-radius: 13px;
+  }
+
+  .food-image,
+  .order-card img {
+    height: 125px;
+  }
+
+  .food-info {
+    padding: 10px;
+  }
+
+  .food-name,
+  .order-card h3 {
+    margin-bottom: 5px;
+    font-size: 17px;
+    line-height: 1.2;
+  }
+
+  .food-description {
+    font-size: 10px;
+  }
+
+  .food-price {
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+
+  .food-actions {
+    gap: 8px;
+  }
+
+  .quantity-control {
+    min-height: 32px;
+    gap: 8px;
+    padding: 3px 6px;
+  }
+
+  .qty-minus,
+  .qty-plus {
+    width: 23px;
+    height: 23px;
+    font-size: 14px;
+  }
+
+  .qty-number {
+    font-size: 12px;
+  }
+
+  .add-cart {
+    min-height: 34px;
+    padding: 8px 6px;
+    font-size: 10px;
+  }
+
+  .cart-section {
+    padding: 28px 4% 38px;
+  }
+
+  .cart-box {
+    padding: 17px 13px;
+    border-radius: 14px;
+  }
+
+  .cart-title h2 {
+    font-size: 27px;
+  }
+
+  .cart-item {
+    gap: 9px;
+  }
+
+  .cart-item-name {
+    font-size: 12px;
+  }
+
+  .cart-item-price {
+    font-size: 11px;
+  }
+
+  .cart-item-controls {
+    gap: 5px;
+  }
+
+  .cart-item-controls button {
+    width: 25px;
+    height: 25px;
+  }
+
+  .cart-summary-label {
+    font-size: 13px;
+  }
+
+  #cartTotal {
+    font-size: 18px;
+  }
+
+  #checkoutBtn {
+    min-height: 46px;
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 360px) {
+  .logo {
+    font-size: 18px;
+  }
+
+  .customer-phone {
+    max-width: 115px;
+    font-size: 9px;
+  }
+
+  .logout-btn {
+    padding: 7px 8px;
+    font-size: 9px;
+  }
+
+  .food-gallery {
+    gap: 9px;
+  }
+
+  .food-image,
+  .order-card img {
+    height: 105px;
+  }
+
+  .food-info {
+    padding: 8px;
+  }
+
+  .food-name,
+  .order-card h3 {
+    font-size: 15px;
+  }
+
+  .food-price {
+    font-size: 14px;
+  }
+
+  .quantity-control {
+    gap: 6px;
+  }
+
+  .add-cart {
+    font-size: 9px;
+  }
+}
+
+/* Hide filtered food cards */
+.order-card.hidden,
+.order-card[hidden] {
+  display: none !important;
+}
+
+/* Prevent horizontal overflow */
+.navbar,
+.menu-intro,
+.category-section,
+.menu-heading,
+.food-gallery,
+.cart-section,
+.footer {
+  max-width: 100%;
 }
