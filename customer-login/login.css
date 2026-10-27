@@ -1,294 +1,230 @@
-/* ===========================================
-   LOGIN.CSS
-=========================================== */
 
-/* RESET */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+:root {
+  --bg: #3B0A16;
+  --card: #4A101F;
+  --gold: #D4AF37;
+  --gold-light: #E8D7B0;
+  --cream: #F8F5ED;
+  --muted: #CDBBBC;
+  --border: rgba(232, 215, 176, 0.28);
 }
 
-body{
-
-font-family:'Montserrat',sans-serif;
-
-background:#3B0A16;
-
-color:#fff;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-min-height:100vh;
-
-padding:20px;
-
-overflow:hidden;
-
-background-image:
-linear-gradient(
-45deg,
-rgba(212,178,111,.05) 25%,
-transparent 25%,
-transparent 75%,
-rgba(212,178,111,.05) 75%
-),
-linear-gradient(
--45deg,
-rgba(212,178,111,.05) 25%,
-transparent 25%,
-transparent 75%,
-rgba(212,178,111,.05) 75%
-);
-
-background-size:80px 80px;
-background-position:0 0,40px 40px;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* CONTAINER */
-
-.login-container{
-
-width:100%;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
+html {
+  min-height: 100%;
 }
 
-/* CARD */
-
-.login-card{
-
-width:100%;
-
-max-width:430px;
-
-background:#5A1626;
-
-padding:40px 30px;
-
-border-radius:18px;
-
-border:1px solid #D4AF37;
-
-box-shadow:0 20px 40px rgba(0,0,0,.35);
-
-animation:fadeIn .6s ease;
-
+body {
+  min-height: 100vh;
+  font-family: "Montserrat", Arial, sans-serif;
+  color: var(--cream);
+  background:
+    radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.13), transparent 35%),
+    radial-gradient(circle at 90% 85%, rgba(255, 255, 255, 0.04), transparent 30%),
+    var(--bg);
 }
 
-/* TITLE */
-
-.login-card h1{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:40px;
-
-text-align:center;
-
-color:#E8D7B0;
-
-letter-spacing:2px;
-
-margin-bottom:10px;
-
+button,
+input {
+  font: inherit;
 }
 
-/* DIVIDER */
-
-.divider{
-
-width:90px;
-
-height:2px;
-
-background:#D4AF37;
-
-margin:18px auto;
-
+.login-page {
+  min-height: 100vh;
+  width: 100%;
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* SUBTITLE */
-
-.login-card p{
-
-text-align:center;
-
-font-size:17px;
-
-color:#ddd;
-
-margin-bottom:30px;
-
+.login-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 38px 32px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: linear-gradient(145deg, #5A1626, #350812);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
-/* LABEL */
-
-.input-group{
-
-margin-bottom:25px;
-
+.brand-icon {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.09);
+  color: var(--gold);
+  font-size: 27px;
 }
 
-.input-group label{
-
-display:block;
-
-margin-bottom:10px;
-
-font-size:15px;
-
-color:#E8D7B0;
-
+.eyebrow {
+  margin-bottom: 5px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
 }
 
-/* INPUT */
-
-.input-group input{
-
-width:100%;
-
-padding:15px;
-
-background:#6A1B2E;
-
-border:1px solid rgba(212,178,111,.45);
-
-border-radius:10px;
-
-outline:none;
-
-font-size:16px;
-
-color:#fff;
-
-transition:.3s;
-
+.login-card h1 {
+  color: var(--gold-light);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(36px, 9vw, 48px);
+  line-height: 1.1;
 }
 
-.input-group input::placeholder{
-
-color:#cfcfcf;
-
+.subtitle {
+  margin: 12px 0 30px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
 }
 
-.input-group input:focus{
-
-border-color:#FFD76A;
-
-box-shadow:0 0 10px rgba(212,178,111,.35);
-
+#loginForm {
+  text-align: left;
 }
 
-/* BUTTON */
-
-#loginBtn{
-
-width:100%;
-
-padding:15px;
-
-background:transparent;
-
-border:1px solid #D4AF37;
-
-border-radius:10px;
-
-color:#D4AF37;
-
-font-size:16px;
-
-font-weight:600;
-
-letter-spacing:2px;
-
-cursor:pointer;
-
-transition:.35s;
-
+#loginForm label {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--gold-light);
+  font-size: 12px;
+  font-weight: 700;
 }
 
-#loginBtn:hover{
-
-background:#D4AF37;
-
-color:#3B0A16;
-
-transform:translateY(-2px);
-
-box-shadow:0 10px 20px rgba(212,175,55,.30);
-
+.phone-field {
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: rgba(25, 3, 9, 0.5);
 }
 
-/* ANIMATION */
-
-@keyframes fadeIn{
-
-from{
-
-opacity:0;
-
-transform:translateY(30px);
-
+.country-code {
+  flex-shrink: 0;
+  color: var(--gold-light);
+  font-size: 14px;
+  font-weight: 700;
 }
 
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
+.field-divider {
+  width: 1px;
+  height: 24px;
+  flex-shrink: 0;
+  background: var(--border);
 }
 
+.phone-field input {
+  width: 100%;
+  min-width: 0;
+  padding: 15px 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--cream);
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 
-/* MOBILE */
-
-@media(max-width:768px){
-
-.login-card{
-
-padding:30px 20px;
-
+.phone-field input::placeholder {
+  color: #AA9298;
+  letter-spacing: 0;
+  font-size: 12px;
 }
 
-.login-card h1{
-
-font-size:30px;
-
+.phone-field:focus-within {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
 }
 
-.login-card p{
-
-font-size:16px;
-
+.error-message {
+  margin-top: 9px;
+  color: #FFB3B3;
+  font-size: 11px;
+  line-height: 1.6;
 }
 
-.input-group input{
-
-font-size:15px;
-
-padding:14px;
-
+#continueBtn {
+  width: 100%;
+  min-height: 51px;
+  margin-top: 22px;
+  padding: 13px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid var(--gold);
+  border-radius: 11px;
+  background: var(--gold);
+  color: #2A0610;
+  font-size: 13px;
+  font-weight: 800;
+  transition: background 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
 }
 
-#loginBtn{
-
-font-size:15px;
-
-padding:14px;
-
+#continueBtn:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
 }
 
+#continueBtn:focus-visible,
+.phone-field input:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 3px;
+}
+
+.privacy-note {
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.privacy-note i {
+  margin-right: 5px;
+  color: var(--gold);
+}
+
+.bottom-note {
+  margin-top: 22px;
+  color: var(--gold-light);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 17px;
+  text-align: center;
+}
+
+@media (max-width: 420px) {
+  .login-page {
+    padding: 20px 14px;
+  }
+
+  .login-card {
+    padding: 30px 21px;
+    border-radius: 18px;
+  }
+
+  .brand-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+
+  .subtitle {
+    margin-bottom: 25px;
+  }
 }
