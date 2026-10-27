@@ -1,79 +1,66 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3B0A16">
+  <title>Customer Login</title>
 
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Customer Login</title>
-
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
-rel="stylesheet">
-
-<link rel="stylesheet"
-href="login.css">
-
+  <link rel="stylesheet" href="login.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-
 <body>
+  <main class="login-page">
+    <section class="login-card">
+      <div class="brand-icon">
+        <i class="fa-solid fa-utensils"></i>
+      </div>
 
-<div class="login-container">
+      <p class="eyebrow">WELCOME</p>
+      <h1>Self Ordering</h1>
+      <p class="subtitle">Your favourite food, just a few taps away.</p>
 
-<div class="login-card">
+      <form id="loginForm" novalidate>
+        <label for="mobileNumber">Mobile Number</label>
 
-<h1>
+        <div class="phone-field">
+          <span class="country-code">+91</span>
+          <span class="field-divider"></span>
+          <input
+            type="tel"
+            id="mobileNumber"
+            name="mobileNumber"
+            inputmode="numeric"
+            autocomplete="tel-national"
+            placeholder="Enter 10-digit number"
+            maxlength="10"
+            minlength="10"
+            pattern="[0-9]{10}"
+            aria-describedby="loginError"
+            required
+          >
+        </div>
 
-ROYAL NAVSARI DINING
+        <p id="loginError" class="error-message" role="alert" hidden></p>
 
-</h1>
+        <button type="submit" id="continueBtn">
+          Continue <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
 
-<div class="divider"></div>
+      <p class="privacy-note">
+        <i class="fa-solid fa-lock"></i>
+        Enter your mobile number to continue.
+      </p>
+    </section>
 
-<p>
+    <p class="bottom-note">A delicious experience awaits you.</p>
+  </main>
 
-Welcome Back
-
-</p>
-
-<div class="input-group">
-
-<label>
-
-Mobile Number
-
-</label>
-
-<input
-type="tel"
-id="phone"
-maxlength="10"
-placeholder="Enter 10 Digit Mobile Number">
-
-</div>
-
-<button
-id="loginBtn">
-
-LOGIN
-
-</button>
-
-</div>
-
-</div>
-
-<script src="login.js"></script>
-
+  <script src="login.js"></script>
 </body>
-
 </html>
